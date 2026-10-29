@@ -10,7 +10,9 @@ export interface SeedOptions {
   due?: number
   /** 기록을 남길 지난 날 수(연속일이 그만큼 보인다) */
   days?: number
-  /** 세션을 중간까지 진행한 상태로 둘까 */
+  /** 세션을 시작만 해 둘까(첫 박자) */
+  startSession?: boolean
+  /** 세션을 중간까지 진행한 상태로 둘까(3박자) */
   midSession?: boolean
 }
 
@@ -19,7 +21,7 @@ export interface SeedOptions {
  * 복습 예정·연속일·막힌 문장이 모두 0 이면 어떤 화면도 제대로 안 보인다.
  */
 export async function seedDemo(options: SeedOptions = {}): Promise<void> {
-  const { due = 5, days = 4, midSession = false } = options
+  const { due = 5, days = 4, startSession = false, midSession = false } = options
   const store = useApp.getState()
   await store.load()
 
@@ -45,10 +47,12 @@ export async function seedDemo(options: SeedOptions = {}): Promise<void> {
   store.commit({ puts: { reviews, days: log }, deletes: {} })
   await store.settled()
 
-  if (midSession) {
+  if (startSession || midSession) {
     store.startSession()
-    store.nextBeat()
-    store.nextBeat()
+    if (midSession) {
+      store.nextBeat()
+      store.nextBeat()
+    }
     await store.settled()
   }
 }

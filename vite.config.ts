@@ -69,9 +69,24 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // 앱 셸(html·js·css)과 정적 자산(글꼴·아이콘)을 설치 때 전부 내려받아 오프라인에서도 그대로 연다.
-        // m4a·json 은 기준 음원과 그 색인이다. 지하철에서 쓰는 앱이라 이게 캐시에 없으면 핵심 흐름이 죽는다.
-        globPatterns: ['**/*.{html,js,css,svg,png,ico,webmanifest,woff2,woff,m4a,json}'],
+        // 앱 셸(html·js·css)과 아이콘, 그리고 **기준 음원(m4a)** 을 설치 때 내려받는다.
+        // 지하철에서 쓰는 앱이라 음원이 캐시에 없으면 핵심 흐름이 그 자리에서 죽는다.
+        //
+        // 글꼴은 일부러 뺀다. Pretendard 동적 서브셋은 woff2 가 100개가 넘어 전부 미리 받으면
+        // precache 가 4.2MB / 150항목이 되고, 설치가 끝나기 전에 오프라인이 되면 아무것도 안 열린다.
+        // 아래 runtimeCaching 으로 실제로 쓴 서브셋만 쥐고, 없는 글자는 시스템 글꼴로 떨어진다.
+        globPatterns: ['**/*.{html,js,css,svg,png,ico,webmanifest,m4a,json}'],
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.destination === 'font',
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'gosay-fonts',
+              expiration: { maxEntries: 60, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+        ],
         maximumFileSizeToCacheInBytes: MAX_PRECACHE_BYTES,
         // HashRouter 라서 주소는 늘 '/#/...' 이다. 탐색 요청은 전부 앱 셸로 돌린다.
         navigateFallback: 'index.html',

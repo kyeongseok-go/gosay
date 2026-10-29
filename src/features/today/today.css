@@ -1,12 +1,21 @@
 /* 오늘. 한 번 눌러 시작되는 것이 이 화면의 전부다. 숫자는 셋만 둔다. */
 
+/* 머리글 / 숫자 / 행동. 가운데 칸이 늘어나 행동 블록을 화면 아래로 민다.
+   폰을 한 손으로 들었을 때 가장 큰 버튼이 엄지에 닿아야 한다. */
 .today {
   display: grid;
+  grid-template-rows: auto auto auto 1fr;
   gap: var(--space-5);
-  align-content: start;
+  min-height: 100dvh;
   max-width: 34rem;
   margin: 0 auto;
-  padding: calc(var(--safe-t) + var(--space-6)) var(--space-gutter) calc(var(--safe-b) + var(--space-6));
+  padding: calc(var(--safe-t) + var(--space-6)) var(--space-gutter) calc(var(--safe-b) + var(--space-5));
+}
+
+.today__act {
+  display: grid;
+  align-content: end;
+  gap: var(--space-3);
 }
 
 .today__wait {
@@ -83,6 +92,7 @@
 .facts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-self: start;
   margin: 0;
   border-top: 1px solid var(--rule);
 }
@@ -111,4 +121,54 @@
 .today__tracks {
   color: var(--muted);
   font-size: var(--text-xs);
+}
+
+/* 데스크톱에서는 화면을 다 쓰지 않는다. 위에서부터 쌓고 끝낸다. */
+@media (min-width: 48rem) {
+  .today {
+    grid-template-rows: auto auto auto auto;
+    min-height: 0;
+    padding-top: var(--space-7);
+  }
+
+  .today__act {
+    align-content: start;
+  }
+}
+
+/* 오늘 나올 묶음. 카드를 만들지 않고 줄로만 늘어놓는다. */
+.queue {
+  align-self: start;
+}
+
+.queue__title {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+.queue__list {
+  margin-top: var(--space-2);
+}
+
+.queue__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.queue__row + .queue__row {
+  border-top: 1px solid var(--rule);
+}
+
+.queue__name {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+}
+
+.queue__count {
+  color: var(--muted);
+  font-size: var(--text-sm);
 }

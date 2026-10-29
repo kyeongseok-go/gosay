@@ -27,7 +27,14 @@ const SHOTS = [
   { file: 'today-768', path: '#/', width: 768, height: 1024, dark: false, seed: { due: 5, days: 4 } },
   { file: 'today-390', path: '#/', width: 390, height: 844, dark: false, seed: { due: 5, days: 4 } },
   { file: 'today-390-dark', path: '#/', width: 390, height: 844, dark: true, seed: { due: 5, days: 4 } },
-  { file: 'session-listen-390', path: '#/session', width: 390, height: 844, dark: false, seed: { due: 5, days: 4 } },
+  {
+    file: 'session-listen-390',
+    path: '#/session',
+    width: 390,
+    height: 844,
+    dark: false,
+    seed: { due: 5, days: 4, startSession: true },
+  },
   {
     file: 'session-produce-390',
     path: '#/session',
@@ -44,7 +51,14 @@ const SHOTS = [
     dark: true,
     seed: { due: 5, days: 4, midSession: true },
   },
-  { file: 'session-1440', path: '#/session', width: 1440, height: 900, dark: false, seed: { due: 5, days: 4 } },
+  {
+    file: 'session-1440',
+    path: '#/session',
+    width: 1440,
+    height: 900,
+    dark: false,
+    seed: { due: 5, days: 4, startSession: true },
+  },
 ]
 
 function serve() {
