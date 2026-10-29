@@ -50,8 +50,9 @@
 
 .stage__end {
   flex: 0 0 auto;
+  min-width: var(--tap-min);
   min-height: var(--tap-min);
-  padding: 0 var(--space-2);
+  padding: 0 var(--space-3);
   color: var(--muted);
   font-size: var(--text-sm);
 }

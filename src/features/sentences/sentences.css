@@ -17,7 +17,10 @@
 .snt__back a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-width: var(--tap-min);
   min-height: var(--tap-min);
+  padding-right: var(--space-2);
   color: var(--accent);
   font-size: var(--text-sm);
   font-weight: var(--weight-semibold);

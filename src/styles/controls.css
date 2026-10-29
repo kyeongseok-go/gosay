@@ -126,14 +126,15 @@
   display: inline-flex;
   flex: 0 0 auto;
   gap: 2px;
-  padding: 3px;
+  padding: 2px;
   border-radius: var(--radius-pill);
   background: var(--fill-3);
 }
 
 .speed__pick {
-  min-width: 2.75rem;
-  min-height: calc(var(--control-h) - 6px);
+  min-width: var(--tap-min);
+  /* 트랙 안에 있어도 44px 밑으로 내리지 않는다. 지하철에서 한 손으로 누른다. */
+  min-height: var(--tap-min);
   border-radius: var(--radius-pill);
   /* 고르지 않은 쪽도 읽혀야 한다. --muted 는 이 채움색 위에서 명암비 3.97 로 AA 에 못 미친다. */
   color: var(--ink-soft);

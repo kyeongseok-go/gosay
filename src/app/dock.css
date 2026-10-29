@@ -39,7 +39,9 @@
   color: var(--accent);
 }
 
-/* 독이 본문 마지막 줄을 가리지 않게 자리를 비운다. */
-.has-dock {
+/* 독이 본문 마지막 줄을 가리지 않게 자리를 비운다.
+   클래스를 두 번 적어 특이도를 올린다 — 화면별 CSS(.set, .trk …)가 padding 축약형으로
+   아래 여백을 함께 덮어쓰고, 같은 특이도면 나중에 평가되는 기능 CSS 가 이긴다. */
+.has-dock.has-dock {
   padding-bottom: var(--dock-clear);
 }
