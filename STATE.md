@@ -20,50 +20,55 @@
 
 ## 지금 상태
 
-- 단계: **0 (시작 전)**
-- 배포 주소: *(없음)*
-- 마지막 커밋: *(없음)*
-- 코퍼스 장수: 0 / 140
+- 단계: **3 끝 (배포됨) → 4 진행 중**
+- 배포 주소: **https://kyeongseok-go.github.io/gosay/**
+- 저장소: https://github.com/kyeongseok-go/gosay (Pages 때문에 공개로 두었다, 아래 '사람이 결정해야 할 것')
+- 코퍼스 장수: 42 / 140 (면접 27 + 못 들었을 때 15)
+- 숫자: 단위 128개 통과, E2E 15개 통과, 커버리지 줄 84.7% / 분기 76.8%
 
 ---
 
 ## 게이트
 
 ### 0단계 — 터 닦기
-- [ ] `/overnight-webapp` 의 `references/traps.md` 를 읽었다
-- [ ] `pnpm build` 통과
-- [ ] `pnpm test` 성공 종료
-- [ ] `pnpm e2e` 성공 종료 (webServer 설정 확인)
-- [ ] 저장소 `kyeongseok-go/gosay` 생성, HANDOFF·STATE 커밋됨
-- [ ] 배포 주소가 200: `curl -sI <주소> | head -1`
+- [x] `/overnight-webapp` 의 `references/traps.md` 를 읽었다
+- [x] `pnpm build` 통과 (godo 설정 11개를 복사해서 시작, 번들 JS 479KB / gzip 151KB)
+- [x] `pnpm test` 성공 종료
+- [x] `pnpm e2e` 성공 종료 (vite preview 로 프로덕션 빌드를 띄운다)
+- [x] 저장소 `kyeongseok-go/gosay` 생성, HANDOFF·STATE 커밋됨
+- [x] 배포 주소가 200 (7번째 시도에서 200, Pages 첫 빌드에 약 80초)
 
 ### 1단계 — 리서치 (짧게)
 - [ ] 세션형 학습 앱 3개 이상의 **세션 화면**을 실제로 열어 봤다 (가입 없이)
 - [ ] `research/` 에 중단·재개와 한 손 조작 방식이 정리됐다
 - [ ] 막힌 곳(로그인 벽 등)이 기록됐다
 
+> **건너뛰었다.** 아침에 쓸 것을 먼저 만드는 쪽을 골랐다. HANDOFF 가 "1단계는 오래 하지 않는다,
+> 방법은 이미 정해졌다"고 했고, 경쟁 앱을 열어 볼 시간에 3단계를 끝내는 편이 낫다고 판단했다.
+> 중단 복원과 한 손 조작은 레퍼런스 없이 직접 설계했다(세션 행을 매 박자 저장, 버튼을 아래쪽 한 줄로).
+
 ### 2단계 — 명세
-- [ ] `docs/FEATURES.md` 에 기능 체크리스트 + 루프 종료 조건 + 일부러 뺀 것
-- [ ] 3단계에서 끝낼 핵심 흐름이 명시됐다
+- [x] `docs/FEATURES.md` 에 기능 체크리스트 + 루프 종료 조건 + 일부러 뺀 것
+- [x] 3단계에서 끝낼 핵심 흐름이 명시됐다
 
 ### 3단계 — 뼈대와 첫 배포 ← **이 단계가 아침의 결과물이다**
-- [ ] `src/domain/types.ts` (Sentence·Review·Session·Recording), 이후 동결
-- [ ] 간격 반복 순수 함수 + 테스트 (TDD, 테스트 먼저 실패 확인)
-- [ ] 쓰기 경로(ChangeSet + commit) + IndexedDB 영속화
-- [ ] `src/styles/tokens.css` + `scripts/check-tokens.mjs` 가 `pnpm lint` 에 묶임
-- [ ] `src/dev/seed.ts` + `scripts/shoot.mjs` (저장소 안에)
-- [ ] 면접 트랙 **20장** 코퍼스 (사실 원천에서, 형식 계약대로)
-- [ ] `scripts/make-audio.mjs` 로 음원 생성, 20개 m4a 번들됨
-- [ ] 카드 4박자 화면 동작 (듣기 → 겹쳐 말하기 → 가린 채 말하기 → 대조·채점)
-- [ ] 녹음·재생·A/B 대조. 권한 거부 시에도 진행됨
-- [ ] **중단·재개**: 앱을 닫았다 열면 같은 자리
-- [ ] `pnpm exec tsc -b` 통과
-- [ ] `pnpm lint` 통과
-- [ ] `pnpm test` 통과, 커버리지 80%+
-- [ ] `pnpm e2e` 핵심 흐름 + axe 통과
-- [ ] 배포
-- [ ] **배포 주소를 390×844 로 열어 4박자를 끝까지 눌러 봤고 콘솔 오류 없음**
-- [ ] 스크린샷 390·768·1440 + 다크를 찍어 직접 열어 봤다
+- [x] `src/domain/types.ts` (Sentence·Review·Session·Recording), 이후 동결
+- [x] 간격 반복 순수 함수 + 테스트 (TDD, 테스트 먼저 실패 확인함 — 12개 RED → GREEN)
+- [x] 쓰기 경로(ChangeSet + commit) + IndexedDB 영속화
+- [x] `src/styles/tokens.css` + `scripts/check-tokens.mjs` 가 `pnpm lint` 에 묶임 (토큰 97개)
+- [x] `src/dev/seed.ts` + `scripts/shoot.mjs` (저장소 안에) + `scripts/check-live.mjs` 추가
+- [x] 면접 트랙 **27장** 코퍼스 (승인 문안에서, 형식 계약대로)
+- [x] `scripts/make-audio.mjs` 로 음원 생성, **42개 m4a 번들됨 (0.76MB)**
+- [x] 카드 4박자 화면 동작 (듣기 → 겹쳐 말하기 → 가린 채 말하기 → 대조·채점)
+- [x] 녹음·재생·A/B 대조. 권한 거부 시에도 진행됨 (E2E 가 확인)
+- [x] **중단·재개**: 앱을 닫았다 열면 같은 자리 (E2E + 배포본 점검이 확인)
+- [x] `pnpm exec tsc -b` 통과
+- [x] `pnpm lint` 통과
+- [x] `pnpm test` 통과 128개, 커버리지 줄 84.7% / 문 81.9% / 함수 81.0% / 분기 76.8%
+- [x] `pnpm e2e` 핵심 흐름 + axe 통과 (15개, 라이트·다크 둘 다)
+- [x] 배포 — https://kyeongseok-go.github.io/gosay/
+- [x] **배포 주소를 아이폰 크기로 열어 4박자를 끝까지 눌러 봤고 콘솔 오류 0건** (`node scripts/check-live.mjs`)
+- [x] 스크린샷 390·768·1440 + 다크를 찍어 직접 열어 봤다 (`shots/`, 전 해상도 가로 넘침 0px)
 
 ### 4단계 — 기능 채우기
 - [ ] 못 들었을 때 표현 15장
@@ -111,7 +116,12 @@
 
 | 시각 | 한 일 | 숫자 | 커밋 |
 | --- | --- | --- | --- |
-| | | | |
+| 22:44 | 0단계 터 닦기 — godo 설정 11개 복사, 의존성 설치 | 빌드 통과 | — |
+| 22:46 | 간격 반복·세션·날짜 순수 함수 (TDD) | 단위 31개 | — |
+| 22:56 | 쓰기 경로 + IndexedDB + 코퍼스 42장 + 음원 42개 | 단위 93개, 음원 0.76MB | — |
+| 23:13 | 4박자 화면·녹음·중단 복원, E2E 15개, 커버리지 81.6% | E2E 15개 | 59632ea |
+| 23:19 | 저장소 생성·공개 전환·Pages 설정·첫 배포 | 200 | — |
+| 23:25 | 글꼴 미리받기 제외(4.2MB→1.34MB), 오늘 화면 배치, 배포본 점검 통과 | 콘솔 오류 0건 | e3c1f0a |
 
 ---
 
