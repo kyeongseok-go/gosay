@@ -1,0 +1,148 @@
+/* 내 문장. 넣는 칸이 위, 넣은 것이 아래. 둘 사이를 선 하나로만 가른다. */
+
+.snt {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: calc(var(--safe-t) + var(--space-5)) var(--space-gutter) var(--space-5);
+}
+
+.snt__wait {
+  padding: var(--space-7) var(--space-gutter);
+  color: var(--muted);
+}
+
+.snt__back a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  color: var(--accent);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+
+.snt__head {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.022em;
+}
+
+.snt__lead {
+  margin-top: calc(var(--space-4) * -1);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.snt__title {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+.snt__form {
+  display: grid;
+  gap: var(--space-3);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--rule);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.field__label {
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+/* 입력칸은 테두리 대신 채움색으로 구분한다(iOS 방식). */
+.field__input {
+  width: 100%;
+  min-height: var(--control-h);
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--fill-3);
+  color: var(--ink);
+  font-size: var(--text-md);
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.field__input::placeholder {
+  color: var(--muted);
+}
+
+.snt__error {
+  color: var(--stuck-ink);
+  font-size: var(--text-sm);
+}
+
+.snt__empty {
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.snt__list {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.snt__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--fill-3);
+}
+
+.snt__ko {
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+}
+
+.snt__en {
+  margin-top: 2px;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+}
+
+.snt__note {
+  margin-top: var(--space-1);
+  color: var(--muted);
+  font-size: var(--text-xs);
+}
+
+.snt__acts {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--space-1);
+}
+
+.snt__icon {
+  display: grid;
+  place-items: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  border-radius: var(--radius-pill);
+  color: var(--accent);
+  transition: background var(--duration-instant) var(--ease-ui);
+}
+
+.snt__icon:active {
+  background: var(--accent-tint);
+}
+
+.snt__icon--danger {
+  color: var(--stuck-ink);
+}

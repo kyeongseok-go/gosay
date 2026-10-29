@@ -109,3 +109,44 @@ test('새 화면에서도 가로 넘침이 없다', async ({ page }) => {
     }
   }
 })
+
+test('직접 넣은 문장이 세션에 나오고 브라우저 음성으로 읽는다고 알린다', async ({ page }) => {
+  await page.getByRole('link', { name: '설정' }).click()
+  await page.getByRole('link', { name: '문장 추가·편집' }).click()
+
+  await page.getByLabel('한국어').fill('제가 맡은 부분만 말씀드려도 될까요?')
+  await page.getByLabel('영어').fill('Can I just talk about the part I owned?')
+  await page.getByRole('button', { name: '문장 넣기' }).click()
+
+  await expect(page.getByText('Can I just talk about the part I owned?')).toBeVisible()
+  await expect(page.getByRole('heading', { name: /넣은 문장 1장/ })).toBeVisible()
+
+  // 묶음에서 '내가 넣은 것' 만 골라 연습하면 그 문장이 바로 나온다
+  await page.getByRole('link', { name: '묶음' }).click()
+  await page.getByRole('button', { name: /내가 넣은 것/ }).click()
+  await expect(page.locator('.stage__ko')).toHaveText('제가 맡은 부분만 말씀드려도 될까요?')
+  await expect(page.getByText(/브라우저 음성으로 읽어요/)).toBeVisible()
+})
+
+test('직접 넣은 문장을 지울 수 있다', async ({ page }) => {
+  await page.goto('/#/sentences')
+  await page.getByLabel('한국어').fill('지울 문장')
+  await page.getByLabel('영어').fill('a sentence to delete')
+  await page.getByRole('button', { name: '문장 넣기' }).click()
+  await expect(page.getByRole('heading', { name: /넣은 문장 1장/ })).toBeVisible()
+
+  await page.getByRole('button', { name: '지울 문장 지우기' }).click()
+
+  await expect(page.getByText(/아직 없어요/)).toBeVisible()
+})
+
+test('접근성 — 내 문장 화면', async ({ page }) => {
+  await page.goto('/#/sentences')
+  await expect(page.getByRole('heading', { level: 1, name: '내 문장' })).toBeVisible()
+
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+    .analyze()
+
+  expect(results.violations).toEqual([])
+})

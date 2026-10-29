@@ -1,5 +1,6 @@
 // 설정. 자주 바꾸는 것(하루 분량·트랙)이 위, 되돌릴 수 없는 것(전체 삭제)이 맨 아래다.
 import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import type { ReactNode } from 'react'
 import { db, useApp } from '../../store/app'
 import { clearProgress } from '../../db/persist'
@@ -149,6 +150,12 @@ export function SettingsScreen() {
           current={settings.theme}
           onPick={(value) => update({ theme: value })}
         />
+      </Row>
+
+      <Row title="내 문장" hint="번들에 없는 문장을 직접 넣어요. 넣은 문장은 브라우저 음성으로 읽어요.">
+        <Link className="btn" to="/sentences">
+          문장 추가·편집
+        </Link>
       </Row>
 
       <Row title="백업" hint="복습 기록과 설정만 담아요. 녹음은 들어가지 않아요.">

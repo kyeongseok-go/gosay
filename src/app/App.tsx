@@ -6,6 +6,7 @@ import { SessionScreen } from '../features/session/SessionScreen'
 import { Tracks } from '../features/tracks/Tracks'
 import { Stats } from '../features/stats/Stats'
 import { SettingsScreen } from '../features/settings/SettingsScreen'
+import { SentenceEditor } from '../features/sentences/SentenceEditor'
 import { Dock } from './Dock'
 import './app.css'
 
@@ -63,6 +64,7 @@ function Shell() {
         <Route path="/tracks" element={<Tracks />} />
         <Route path="/stats" element={<Stats />} />
         <Route path="/settings" element={<SettingsScreen />} />
+        <Route path="/sentences" element={<SentenceEditor />} />
         <Route path="*" element={<Today />} />
       </Routes>
       {/* 세션 중에는 독을 숨긴다. 거기서 나가는 길은 '접기' 하나뿐이어야 집중이 깨지지 않는다. */}

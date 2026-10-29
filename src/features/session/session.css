@@ -199,3 +199,8 @@
   color: var(--muted);
   font-size: var(--text-sm);
 }
+
+/* 직접 넣은 문장이라 브라우저 음성으로 읽는다는 알림. 본문 힌트 뒤에 붙는다. */
+.stage__tts {
+  color: var(--accent);
+}

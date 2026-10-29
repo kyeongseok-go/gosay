@@ -149,7 +149,11 @@ function Card({ session, sentence, onEnd }: CardProps) {
         {beat === 'compare' && sentence.note ? <p className="stage__note">{sentence.note}</p> : null}
       </div>
 
-      <div className="stage__hint">{hintFor(beat, recorder.phase)}</div>
+      <div className="stage__hint">
+        {hintFor(beat, recorder.phase)}
+        {/* 직접 넣은 문장은 기준 음원이 없다. 소리가 다르게 들리는 이유를 말해 둔다. */}
+        {sentence.audio === null ? <span className="stage__tts"> 이 문장은 브라우저 음성으로 읽어요.</span> : null}
+      </div>
 
       <footer className="stage__foot">
         {beat === 'listen' || beat === 'shadow' ? (
