@@ -1,0 +1,47 @@
+/* 앱 껍데기. 화면이 둘뿐이라 네비게이션을 두지 않는다 — 세션에서 나오는 길은 '접기' 하나다. */
+
+.warn {
+  position: fixed;
+  inset: var(--safe-t) 0 auto 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--toast-bg);
+  color: var(--toast-ink);
+  font-size: var(--text-sm);
+}
+
+.warn button {
+  flex: 0 0 auto;
+  min-height: var(--tap-min);
+  padding: 0 var(--space-3);
+  color: inherit;
+  font-weight: var(--weight-semibold);
+  opacity: 0.8;
+}
+
+.fault {
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-gutter);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.fault h1 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+}
+
+.fault p {
+  color: var(--ink-soft);
+  font-size: var(--text-base);
+}
+
+.fault__why {
+  color: var(--muted);
+}

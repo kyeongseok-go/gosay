@@ -17,6 +17,7 @@ const outDir = join(root, 'public', 'audio')
 /** 24kbps 모노 AAC. 실측: 3.8초 문장이 약 16KB. 300문장이면 4.6MB. */
 const BITRATE = '24000'
 const DEFAULT_VOICE = 'Samantha'
+const INDEX_FILE = 'audio-index.json'
 
 const args = process.argv.slice(2)
 const force = args.includes('--force')
@@ -30,7 +31,8 @@ export function audioName(english) {
 
 function sentences() {
   if (!existsSync(contentDir)) throw new Error(`코퍼스 폴더가 없어요: ${contentDir}`)
-  const files = readdirSync(contentDir).filter((name) => name.endsWith('.json'))
+  // audio-index.json 은 이 스크립트가 쓰는 산출물이다. 코퍼스로 다시 읽지 않는다.
+  const files = readdirSync(contentDir).filter((name) => name.endsWith('.json') && name !== INDEX_FILE)
   if (files.length === 0) throw new Error(`${contentDir} 에 코퍼스 JSON 이 없어요`)
   return files.flatMap((name) => {
     const parsed = JSON.parse(readFileSync(join(contentDir, name), 'utf8'))
@@ -76,8 +78,10 @@ const orphans = readdirSync(outDir).filter((name) => name.endsWith('.m4a') && !w
 for (const name of orphans) rmSync(join(outDir, name))
 
 // 앱이 문장 → 파일명을 런타임에 다시 계산하지 않도록 색인을 남긴다.
+// 색인은 소스로 두고(번들에 들어간다), m4a 만 정적 자산으로 둔다.
+// 런타임에 해시를 계산하려면 crypto.subtle 이 필요하고 그건 비동기라 첫 재생이 늦어진다.
 const index = Object.fromEntries([...wanted].map(([name, english]) => [english, `audio/${name}`]))
-writeFileSync(join(outDir, 'index.json'), `${JSON.stringify(index, null, 2)}\n`)
+writeFileSync(join(contentDir, INDEX_FILE), `${JSON.stringify(index, null, 2)}\n`)
 
 const bytes = readdirSync(outDir)
   .filter((name) => name.endsWith('.m4a'))

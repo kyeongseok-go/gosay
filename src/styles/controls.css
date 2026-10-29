@@ -1,0 +1,149 @@
+/* 누르는 것. 전부 알약이고, 손가락이 닿는 것은 44px 밑으로 내려가지 않는다.
+   눌린 느낌은 그림자가 아니라 채움색과 아주 짧은 눌림(scale)으로 만든다. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--control-h);
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--fill-1);
+  color: var(--ink);
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.012em;
+  transition:
+    background var(--duration-instant) var(--ease-ui),
+    transform var(--duration-instant) var(--ease-spring),
+    opacity var(--duration-instant) var(--ease-ui);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+  background: var(--fill-2);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+}
+
+/* 화면을 대표하는 버튼. 엄지가 닿는 아래쪽을 가로로 다 쓴다. */
+.btn--wide {
+  flex: 1 1 auto;
+  min-height: var(--control-h-lg);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: var(--text-md);
+}
+
+.btn--wide:active:not(:disabled) {
+  background: color-mix(in oklab, var(--accent) 86%, black);
+}
+
+/* 재생·녹음처럼 뜻이 그림으로 전해지는 것. 원 하나로 둔다. */
+.btn--round {
+  flex: 0 0 auto;
+  width: var(--control-h-lg);
+  height: var(--control-h-lg);
+  padding: 0;
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: var(--shadow-2);
+}
+
+.btn--round svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* 녹음 중. 색으로만 알린다 — 깜빡이는 것은 지하철에서 거슬린다. */
+.btn--rec {
+  background: var(--danger);
+  color: var(--accent-ink);
+}
+
+/* A/B 대조의 두 쪽. 지금 울리는 쪽만 채운다. */
+.btn--ab {
+  flex: 1 1 0;
+  min-height: var(--control-h);
+  background: var(--fill-2);
+  font-size: var(--text-base);
+}
+
+.btn--on {
+  background: var(--accent-tint);
+  color: var(--accent);
+}
+
+/* 채점 세 단계. 가로로 늘어놓지 않고 세로로 쌓는다 — 한 손 엄지로 고른다. */
+.btn--grade {
+  width: 100%;
+  flex-direction: column;
+  gap: 2px;
+  min-height: var(--control-h-lg);
+  padding: var(--space-2) var(--space-4);
+}
+
+.btn__label {
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+}
+
+.btn__hint {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  color: var(--muted);
+}
+
+/* 색이 뜻이다: 막혔다는 경고색, 더듬었다는 중간색, 바로 나왔다는 통과색. */
+.btn--stuck {
+  background: color-mix(in oklab, var(--danger) 14%, transparent);
+  color: var(--stuck-ink);
+}
+
+.btn--shaky {
+  background: color-mix(in oklab, var(--warn) 16%, transparent);
+  color: var(--shaky-ink);
+}
+
+.btn--fluent {
+  background: color-mix(in oklab, var(--ok) 14%, transparent);
+  color: var(--fluent-ink);
+}
+
+.btn--stuck .btn__hint,
+.btn--shaky .btn__hint,
+.btn--fluent .btn__hint {
+  /* 흐리게 하지 않는다. 라벨과 설명의 구분은 크기와 굵기가 이미 해 준다.
+     투명도를 주면 틴트 배경 위에서 명암비가 4.4 로 내려가 AA 를 못 넘는다. */
+  color: currentcolor;
+}
+
+/* 속도 전환. 세그먼트 트랙을 테두리 없이 채움색으로만 만든다(iOS 방식). */
+.speed {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--fill-3);
+}
+
+.speed__pick {
+  min-width: 2.75rem;
+  min-height: calc(var(--control-h) - 6px);
+  border-radius: var(--radius-pill);
+  /* 고르지 않은 쪽도 읽혀야 한다. --muted 는 이 채움색 위에서 명암비 3.97 로 AA 에 못 미친다. */
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  transition: background var(--duration-instant) var(--ease-ui);
+}
+
+.speed__pick--on {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-1);
+}
