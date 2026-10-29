@@ -5,6 +5,8 @@
 import { z } from 'zod'
 import interview from '../content/interview.json'
 import recovery from '../content/recovery.json'
+import work from '../content/work.json'
+import small from '../content/small.json'
 import audioIndex from '../content/audio-index.json'
 import { TRACKS } from './types'
 import type { Sentence } from './types'
@@ -38,9 +40,14 @@ function load(raw: unknown, file: string): Sentence[] {
   }))
 }
 
-/** 번들된 전 문장. 면접 트랙이 먼저 온다. */
+/** 번들된 전 문장. 면접 트랙이 먼저 온다 — 이 앱을 만든 이유다. */
 export function corpus(): Sentence[] {
-  return [...load(interview, 'interview.json'), ...load(recovery, 'recovery.json')]
+  return [
+    ...load(interview, 'interview.json'),
+    ...load(recovery, 'recovery.json'),
+    ...load(work, 'work.json'),
+    ...load(small, 'small.json'),
+  ]
 }
 
 /** 음원이 붙지 않은 문장의 영어. 0 이 아니면 `pnpm audio` 를 다시 돌려야 한다. */

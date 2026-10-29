@@ -53,10 +53,23 @@ describe('SettingsScreen', () => {
     expect(useApp.getState().settings.theme).toBe('dark')
   })
 
-  test('문장이 없는 트랙은 고를 수 없다', () => {
+  test('문장이 없는 트랙은 고를 수 없다 — 고르면 세션이 0장이 된다', () => {
+    const empty = Object.values(useApp.getState().entities.sentences)
+      .filter((row) => row.track === 'work')
+      .map((row) => row.id)
+    useApp.getState().commit({ puts: {}, deletes: { sentences: empty } })
+
     show()
 
     expect(screen.getByRole('button', { name: /업무 기술 영어/ })).toBeDisabled()
+  })
+
+  test('문장이 있는 트랙은 켜고 끌 수 있다', async () => {
+    show()
+
+    await userEvent.click(screen.getByRole('button', { name: /업무 기술 영어/ }))
+
+    expect(useApp.getState().settings.tracks).toEqual(['interview', 'work'])
   })
 
   test('마지막 남은 트랙은 끄지 못한다 — 끄면 세션이 늘 0장이 된다', async () => {

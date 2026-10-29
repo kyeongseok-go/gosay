@@ -34,10 +34,16 @@ describe('Tracks', () => {
   })
 
   test('문장이 있는 트랙만 보여 준다', () => {
+    const empty = Object.values(useApp.getState().entities.sentences)
+      .filter((row) => row.track === 'small')
+      .map((row) => row.id)
+    useApp.getState().commit({ puts: {}, deletes: { sentences: empty } })
+
     show()
 
     expect(screen.getByRole('heading', { name: /면접 영어/ })).toBeInTheDocument()
-    expect(screen.queryByRole('heading', { name: /업무 기술 영어/ })).not.toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /업무 기술 영어/ })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: /짧은 것/ })).not.toBeInTheDocument()
   })
 
   test('묶음과 장수를 보여 준다', () => {

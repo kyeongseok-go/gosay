@@ -1,0 +1,230 @@
+{
+  "note": "짧은 것. 회의를 열고 끊는 말, 전화, small talk. 길이가 짧아서 긴장해도 입에서 나온다 — 그래서 면접 전날 몸풀기로도 쓸 수 있다.",
+  "sentences": [
+    {
+      "id": "sm-meet-1",
+      "track": "small",
+      "group": "회의",
+      "ko": "다들 들리시나요?",
+      "en": "Can everyone hear me?",
+      "note": "화상회의 첫 마디. 짧아서 가장 먼저 나온다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-meet-2",
+      "track": "small",
+      "group": "회의",
+      "ko": "소리가 끊기는 것 같아요. 다시 말씀해 주시겠어요?",
+      "en": "You're breaking up a little. Could you say that again?",
+      "note": "break up = 소리가 끊기다. 화상회의 표준 표현",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-meet-3",
+      "track": "small",
+      "group": "회의",
+      "ko": "카메라는 꺼 두겠습니다. 괜찮으실까요?",
+      "en": "I'll keep my camera off, if that's okay.",
+      "note": "if that's okay = 괜찮으시다면. 허락을 짧게 구한다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-meet-4",
+      "track": "small",
+      "group": "회의",
+      "ko": "제가 먼저 간단히 상황부터 말씀드릴게요.",
+      "en": "Let me quickly bring you up to speed first.",
+      "note": "bring someone up to speed = 상황을 알려 주다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-meet-5",
+      "track": "small",
+      "group": "회의",
+      "ko": "시간이 다 돼 가는데, 마지막으로 하나만 더 말씀드려도 될까요?",
+      "en": "We're almost out of time — can I add one last thing?",
+      "note": "out of time = 시간이 다 되다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-meet-6",
+      "track": "small",
+      "group": "회의",
+      "ko": "그럼 여기까지 하고 나머지는 메시지로 이어 가겠습니다.",
+      "en": "Let's stop here and continue the rest over chat.",
+      "note": "over chat = 메시지로",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-meet-7",
+      "track": "small",
+      "group": "회의",
+      "ko": "다음 회의가 있어서 먼저 나가 보겠습니다.",
+      "en": "I have another meeting, so I'll have to drop off.",
+      "note": "drop off = 회의에서 빠지다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-meet-8",
+      "track": "small",
+      "group": "회의",
+      "ko": "정리하면, 다음 주까지 제가 이걸 확인하는 걸로 하겠습니다.",
+      "en": "So to summarize, I'll look into this by next week.",
+      "note": "회의 끝에 각자 할 일을 한 문장으로 못 박는다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-meet-9",
+      "track": "small",
+      "group": "회의",
+      "ko": "오늘 이야기한 것은 제가 정리해서 보내 드리겠습니다.",
+      "en": "I'll write up what we discussed and send it over.",
+      "note": "write up = 정리해서 쓰다 / send it over = 보내 주다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-call-1",
+      "track": "small",
+      "group": "전화",
+      "ko": "지금 통화 괜찮으세요?",
+      "en": "Is now a good time to talk?",
+      "note": "전화를 여는 말",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-call-2",
+      "track": "small",
+      "group": "전화",
+      "ko": "잠시만요, 조용한 곳으로 옮기겠습니다.",
+      "en": "Hold on a second — let me move somewhere quieter.",
+      "note": "Hold on a second = 잠시만요",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-call-3",
+      "track": "small",
+      "group": "전화",
+      "ko": "신호가 약한 것 같아요. 다시 걸어도 될까요?",
+      "en": "I think the signal is weak. Can I call you back?",
+      "note": "call back = 다시 걸다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-call-4",
+      "track": "small",
+      "group": "전화",
+      "ko": "성함을 한 번만 더 말씀해 주시겠어요?",
+      "en": "Could you say your name one more time?",
+      "note": "이름을 못 알아들었을 때. 미안해하지 않는다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-call-5",
+      "track": "small",
+      "group": "전화",
+      "ko": "제가 받아 적겠습니다. 천천히 말씀해 주세요.",
+      "en": "Let me write that down — please go ahead slowly.",
+      "note": "write down = 받아 적다. 속도를 늦추는 가장 자연스러운 핑계다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-call-6",
+      "track": "small",
+      "group": "전화",
+      "ko": "지금은 답을 드리기 어렵고, 확인하고 다시 연락드리겠습니다.",
+      "en": "I can't answer that right now, but I'll check and get back to you.",
+      "note": "get back to you = 다시 연락드리다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-call-7",
+      "track": "small",
+      "group": "전화",
+      "ko": "제가 다시 걸겠습니다. 몇 시가 편하세요?",
+      "en": "I'll call you back — what time works for you?",
+      "note": "what time works for you = 몇 시가 편하세요",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-call-8",
+      "track": "small",
+      "group": "전화",
+      "ko": "전화 주셔서 감사합니다. 좋은 하루 보내세요.",
+      "en": "Thanks for calling. Have a good one.",
+      "note": "Have a good one = 잘 지내세요. 가볍게 끊을 때",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-talk-1",
+      "track": "small",
+      "group": "small talk",
+      "ko": "오늘 어떠셨어요?",
+      "en": "How has your day been?",
+      "note": "How are you 보다 대화가 이어진다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-talk-2",
+      "track": "small",
+      "group": "small talk",
+      "ko": "한국은 지금 밤이라 저한테는 조금 늦은 시간입니다.",
+      "en": "It's night here in Korea, so it's a bit late for me.",
+      "note": "시차를 가볍게 꺼내는 말. 상대가 배려해 준다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-talk-3",
+      "track": "small",
+      "group": "small talk",
+      "ko": "말씀 많이 들었습니다. 이렇게 뵙게 되어 반갑습니다.",
+      "en": "I've heard a lot about you. It's good to finally meet.",
+      "note": "finally = 드디어. 처음 만나는 자리에서 쓴다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-talk-4",
+      "track": "small",
+      "group": "small talk",
+      "ko": "주말에 뭐 하셨어요?",
+      "en": "What did you get up to over the weekend?",
+      "note": "get up to = 하다. did you do 보다 자연스럽다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-talk-5",
+      "track": "small",
+      "group": "small talk",
+      "ko": "저는 주말에 개인 프로젝트를 조금 만졌습니다.",
+      "en": "I worked on a side project a bit over the weekend.",
+      "note": "side project = 개인 프로젝트. 실제로 사실이라 말하기 쉽다",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-talk-6",
+      "track": "small",
+      "group": "small talk",
+      "ko": "시차가 있어서 제 쪽은 지금 아침입니다.",
+      "en": "With the time difference, it's morning on my side.",
+      "note": "on my side = 제 쪽은",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-talk-7",
+      "track": "small",
+      "group": "small talk",
+      "ko": "오늘 여기는 날씨가 아주 좋습니다.",
+      "en": "The weather is really nice here today.",
+      "note": "할 말이 떨어졌을 때 쓰는 안전한 한 수",
+      "source": "실전 표현"
+    },
+    {
+      "id": "sm-talk-8",
+      "track": "small",
+      "group": "small talk",
+      "ko": "그럼 다음에 또 이야기 나눠요.",
+      "en": "Let's catch up again sometime.",
+      "note": "catch up = 근황을 나누다",
+      "source": "실전 표현"
+    }
+  ]
+}

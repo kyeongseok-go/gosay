@@ -1,0 +1,365 @@
+{
+  "note": "업무 기술 영어. 회사 사실이 들어가지 않는 일반 상황 표현이라 사실 원장과 충돌할 일이 없다. 리뷰를 '남기는 쪽'과 '받는 쪽'을 함께 담았다 — 받는 쪽이 더 자주 필요하다.",
+  "sentences": [
+    {
+      "id": "wk-review-1",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "제가 잘못 읽은 걸 수도 있는데, 이 부분 확인 한 번만 부탁드려요.",
+      "en": "I might be reading this wrong, but could you double-check this part?",
+      "note": "리뷰를 여는 말. 단정하지 않고 시작한다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-2",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "꼭 고쳐야 하는 건 아니고 제안입니다.",
+      "en": "This isn't a blocker, just a suggestion.",
+      "note": "blocker = 막는 것. 리뷰에서 가장 많이 쓰는 단어다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-3",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "이 변경이 왜 필요한지 설명을 조금만 더 붙여 주실 수 있을까요?",
+      "en": "Could you add a little more context on why this change is needed?",
+      "note": "context = 배경. explanation 보다 자연스럽다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-4",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "여기에 null 이 들어오면 어떻게 되나요?",
+      "en": "What happens here if this comes in as null?",
+      "note": "구체적인 입력을 들어 묻는다. 막연한 지적보다 훨씬 잘 통한다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-5",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "이 경우를 덮는 테스트가 있나요?",
+      "en": "Is this case covered by a test?",
+      "note": "covered by = 덮고 있다. 리뷰 표준 표현",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-6",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "같은 로직이 두 군데 있는 것 같은데, 하나로 합칠 수 있을까요?",
+      "en": "This logic looks like it's in two places — could we pull it into one?",
+      "note": "pull it into one = 하나로 합치다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-7",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "잘 잡아 주셨습니다. 고쳐서 다시 올렸어요.",
+      "en": "Good catch, thanks. I've fixed it and pushed again.",
+      "note": "Good catch = 잘 잡으셨어요. 리뷰 받을 때 첫마디로 좋다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-8",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "그건 이번 변경 범위를 넘어서, 따로 이슈로 올려 두겠습니다.",
+      "en": "That's outside the scope of this change, so I'll open a separate issue.",
+      "note": "scope = 범위. 범위를 긋는 말은 자주 쓴다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-9",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "의도한 동작입니다. 주석으로 이유를 남겨 두겠습니다.",
+      "en": "That's intentional. I'll leave a comment explaining why.",
+      "note": "intentional = 일부러 그런 것",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-10",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "이대로 머지해도 괜찮을까요?",
+      "en": "Are you okay with me merging this as is?",
+      "note": "as is = 이대로",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-11",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "제안하신 대로 바꾸면 이 테스트가 깨질 것 같아요.",
+      "en": "If I change it the way you suggested, I think this test will break.",
+      "note": "반대할 때는 근거를 같이 말한다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-review-12",
+      "track": "work",
+      "group": "코드 리뷰",
+      "ko": "시간 되실 때 한 번 봐 주세요. 급하지 않습니다.",
+      "en": "Take a look whenever you get a chance — there's no rush.",
+      "note": "no rush = 급하지 않다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-stand-1",
+      "track": "work",
+      "group": "스탠드업",
+      "ko": "어제는 저장 쪽 버그를 추적해서 찾았습니다.",
+      "en": "Yesterday I tracked down a bug in the saving code.",
+      "note": "track down = 추적해서 찾아내다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-stand-2",
+      "track": "work",
+      "group": "스탠드업",
+      "ko": "오늘은 그 수정에 테스트를 붙일 예정입니다.",
+      "en": "Today I'm going to add tests around that fix.",
+      "note": "around = ~쪽에. for 보다 자연스럽다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-stand-3",
+      "track": "work",
+      "group": "스탠드업",
+      "ko": "막힌 것은 없습니다.",
+      "en": "Nothing is blocking me.",
+      "note": "스탠드업 표준 문장. 짧게 끝낸다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-stand-4",
+      "track": "work",
+      "group": "스탠드업",
+      "ko": "API 응답을 기다리고 있어서 그 부분은 멈춰 있습니다.",
+      "en": "I'm blocked on the API response, so that part is on hold.",
+      "note": "blocked on = ~때문에 막혀 있다 / on hold = 멈춰 있다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-stand-5",
+      "track": "work",
+      "group": "스탠드업",
+      "ko": "어제 말씀드린 것보다 하루 정도 더 걸릴 것 같습니다.",
+      "en": "It's going to take about a day longer than I said yesterday.",
+      "note": "늦어지는 것은 먼저 말한다. 이 문장을 못 하면 더 커진다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-stand-6",
+      "track": "work",
+      "group": "스탠드업",
+      "ko": "그건 제가 오늘 확인해서 알아낸 것을 공유하겠습니다.",
+      "en": "I'll check that today and share what I find.",
+      "note": "what I find = 알아낸 것",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-stand-7",
+      "track": "work",
+      "group": "스탠드업",
+      "ko": "그 부분은 끝나서 리뷰가 올라가 있습니다.",
+      "en": "That part is done and the review is up.",
+      "note": "the review is up = 리뷰가 올라가 있다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-stand-8",
+      "track": "work",
+      "group": "스탠드업",
+      "ko": "그건 끝나고 따로 짧게 이야기 나눌 수 있을까요?",
+      "en": "Could we talk about that separately after this?",
+      "note": "스탠드업을 길게 만들지 않는 말",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-stand-9",
+      "track": "work",
+      "group": "스탠드업",
+      "ko": "제가 이해한 게 맞는지 끝나고 확인하고 싶습니다.",
+      "en": "I'd like to confirm I understood that correctly after the call.",
+      "note": "after the call = 통화 끝나고",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-stand-10",
+      "track": "work",
+      "group": "스탠드업",
+      "ko": "지난주에 올린 것은 어제 배포됐습니다.",
+      "en": "What I put up last week went out yesterday.",
+      "note": "went out = 배포됐다. 구어로 자주 쓴다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-design-1",
+      "track": "work",
+      "group": "설계 논의",
+      "ko": "먼저 우리가 실제로 풀려는 문제가 무엇인지 맞춰 보고 싶습니다.",
+      "en": "First I'd like us to agree on what problem we're actually solving.",
+      "note": "agree on = 합의하다. 회의를 여는 좋은 문장",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-design-2",
+      "track": "work",
+      "group": "설계 논의",
+      "ko": "두 가지 방법이 있는데, 각각 무엇을 포기하는지 말씀드리겠습니다.",
+      "en": "There are two options, and I'll tell you what each one gives up.",
+      "note": "gives up = 포기한다. trade-off 를 쉬운 말로 푼 것",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-design-3",
+      "track": "work",
+      "group": "설계 논의",
+      "ko": "이 방법은 지금은 빠르지만 나중에 고치기 어렵습니다.",
+      "en": "This way is faster now, but it's harder to change later.",
+      "note": "지금과 나중을 대비시킨다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-design-4",
+      "track": "work",
+      "group": "설계 논의",
+      "ko": "되돌릴 수 있는 결정인가요, 아니면 한 번 가면 못 돌아오나요?",
+      "en": "Is this reversible, or is it one-way once we ship it?",
+      "note": "one-way = 되돌릴 수 없는. 내가 실제로 쓰는 판단 기준이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-design-5",
+      "track": "work",
+      "group": "설계 논의",
+      "ko": "작게 하나만 먼저 시험해 보고 정하면 어떨까요?",
+      "en": "What if we try one small piece first and decide after that?",
+      "note": "What if we = ~하면 어떨까요. 제안의 기본형",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-design-6",
+      "track": "work",
+      "group": "설계 논의",
+      "ko": "제가 놓치고 있는 제약이 있을까요?",
+      "en": "Is there a constraint I'm missing here?",
+      "note": "constraint = 제약. 설계 회의에서 자주 나온다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-design-7",
+      "track": "work",
+      "group": "설계 논의",
+      "ko": "그 숫자는 어디서 나온 건가요?",
+      "en": "Where does that number come from?",
+      "note": "짧고 강하다. 공격적으로 들리지 않는다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-design-8",
+      "track": "work",
+      "group": "설계 논의",
+      "ko": "이건 제 의견이고, 정하는 건 팀이 하면 좋겠습니다.",
+      "en": "That's just my opinion — I'd like the team to make the call.",
+      "note": "make the call = 결정하다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-design-9",
+      "track": "work",
+      "group": "설계 논의",
+      "ko": "지금 정하지 말고 다음 주까지 데이터를 좀 모으면 어떨까요?",
+      "en": "Instead of deciding now, what if we gather some data by next week?",
+      "note": "Instead of ~ing = ~하는 대신",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-design-10",
+      "track": "work",
+      "group": "설계 논의",
+      "ko": "그 부분은 제가 직접 해 본 적이 없어서 확신이 없습니다.",
+      "en": "I haven't done that part myself, so I'm not confident about it.",
+      "note": "모르는 것을 모른다고 말한다. 신뢰는 여기서 생긴다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-doc-1",
+      "track": "work",
+      "group": "문서·PR",
+      "ko": "이 PR 은 무엇을 왜 바꿨는지 설명하고 있습니다.",
+      "en": "This pull request explains what changed and why.",
+      "note": "PR 설명의 뼈대다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-doc-2",
+      "track": "work",
+      "group": "문서·PR",
+      "ko": "확인하는 방법은 아래에 단계로 적어 두었습니다.",
+      "en": "I've written the steps to verify it below.",
+      "note": "steps to verify = 확인 단계",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-doc-3",
+      "track": "work",
+      "group": "문서·PR",
+      "ko": "이번 변경으로 깨질 만한 것은 없다고 봅니다.",
+      "en": "I don't think anything breaks because of this change.",
+      "note": "조심스럽게 단정한다. I'm sure 보다 안전하다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-doc-4",
+      "track": "work",
+      "group": "문서·PR",
+      "ko": "리뷰어가 특히 봐 주셨으면 하는 부분을 표시해 두었습니다.",
+      "en": "I've marked the parts I'd especially like a reviewer to look at.",
+      "note": "길어진 PR 에는 꼭 붙인다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-doc-5",
+      "track": "work",
+      "group": "문서·PR",
+      "ko": "스크린샷을 붙였으니 화면은 그걸로 확인해 주세요.",
+      "en": "I attached screenshots, so you can check the screen there.",
+      "note": "attach = 붙이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-doc-6",
+      "track": "work",
+      "group": "문서·PR",
+      "ko": "이 문서는 다음에 맡을 사람이 읽을 것을 생각하고 썼습니다.",
+      "en": "I wrote this doc for whoever picks it up next.",
+      "note": "whoever picks it up next = 다음에 맡을 사람",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-doc-7",
+      "track": "work",
+      "group": "문서·PR",
+      "ko": "관련 이슈는 아래에 링크해 두었습니다.",
+      "en": "I've linked the related issues below.",
+      "note": "짧게 끝낸다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-doc-8",
+      "track": "work",
+      "group": "문서·PR",
+      "ko": "질문이 있으면 PR 에 코멘트로 남겨 주세요.",
+      "en": "If you have questions, just leave a comment on the pull request.",
+      "note": "just = 부담 없이",
+      "source": "실무 표현"
+    }
+  ]
+}
