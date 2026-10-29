@@ -1,0 +1,45 @@
+/* 바닥에 붙이지 않고 띄운다. 알약 하나로 묶어 네 칸을 담는다(iOS 기성 앱의 손맛). */
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--safe-b) + var(--space-3));
+  z-index: 40;
+  transform: translateX(-50%);
+  width: min(calc(100% - var(--space-gutter) * 2), 26rem);
+  padding: var(--space-1);
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--surface) 88%, transparent);
+  backdrop-filter: var(--blur-bar);
+  -webkit-backdrop-filter: var(--blur-bar);
+  box-shadow: var(--shadow-float);
+}
+
+.dock__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.dock__tab {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-height: var(--tap-min);
+  padding: var(--space-1) 0;
+  border-radius: var(--radius-pill);
+  color: var(--muted);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  transition:
+    color var(--duration-instant) var(--ease-ui),
+    background var(--duration-instant) var(--ease-ui);
+}
+
+.dock__tab--on {
+  background: var(--accent-tint);
+  color: var(--accent);
+}
+
+/* 독이 본문 마지막 줄을 가리지 않게 자리를 비운다. */
+.has-dock {
+  padding-bottom: var(--dock-clear);
+}

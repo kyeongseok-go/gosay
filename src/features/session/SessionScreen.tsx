@@ -11,9 +11,12 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Mic, Pause, Play, Square } from 'lucide-react'
 import { usePlayer } from '../../hooks/usePlayer'
+import { useToday } from '../../hooks/useToday'
 import { useRecorder } from '../../hooks/useRecorder'
 import { saveRecording } from '../../db/persist'
 import { db, useApp } from '../../store/app'
+import { sessionSummary } from '../../store/store'
+import { shortKorean } from '../../domain/date'
 import { currentSentenceId, isFinished } from '../../domain/session'
 import { BEAT_LABELS, BEATS, GRADE_LABELS } from '../../domain/types'
 import type { Grade, Sentence, Session } from '../../domain/types'
@@ -249,11 +252,57 @@ function SpeedPick() {
   )
 }
 
+/**
+ * 세션 끝 요약. 방금 무엇을 했고 **무엇이 막혔는지**를 보여 준다.
+ * 막힌 문장을 다시 보여 주는 것이 이 화면의 이유다 — 그게 다음에 볼 것이다.
+ */
 function Done() {
+  const today = useToday()
+  const sentences = useApp((s) => s.entities.sentences)
+  const reviews = useApp((s) => s.entities.reviews)
+  const session = useApp((s) =>
+    Object.values(s.entities.sessions)
+      .filter((row) => row.date === today && row.finishedAt !== null)
+      .sort((a, b) => (a.finishedAt ?? '').localeCompare(b.finishedAt ?? ''))
+      .at(-1),
+  )
+
+  const summary = session ? sessionSummary(session, sentences) : null
+  const nextDue = session
+    ? [...new Set(session.sentenceIds)]
+        .map((id) => reviews[id]?.due)
+        .filter((due): due is string => due !== undefined && due > today)
+        .sort()[0]
+    : undefined
+
   return (
     <section className="stage stage--done">
-      <h1 className="stage__beat">오늘 몫을 끝냈어요</h1>
-      <p className="stage__hint">입으로 낸 문장은 기록에 쌓였어요.</p>
+      <h1 className="stage__beat">
+        {summary && summary.spoken > 0 ? `${summary.spoken}문장을 입으로 냈어요` : '오늘 몫을 끝냈어요'}
+      </h1>
+
+      {summary && summary.stuck.length > 0 ? (
+        <div className="recap">
+          <h2 className="recap__title">막힌 문장 {summary.stuck.length}개 — 다음에 먼저 나와요</h2>
+          <ul className="recap__list">
+            {summary.stuck.map((row) => (
+              <li key={row.id} className="recap__row">
+                <p className="recap__ko">{row.ko}</p>
+                <p className="recap__en" lang="en">
+                  {row.en}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p className="stage__hint">
+          {summary && summary.spoken > 0 ? '막힌 문장이 없었어요.' : '입으로 낸 문장은 기록에 쌓였어요.'}
+        </p>
+      )}
+
+      {nextDue ? <p className="recap__next">다음 복습 예정: {shortKorean(nextDue)}</p> : null}
+
       <Link className="btn btn--wide" to="/">
         오늘로 돌아가기
       </Link>

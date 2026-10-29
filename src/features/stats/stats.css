@@ -1,0 +1,105 @@
+/* 기록. 숫자를 늘어놓지 않고 "무엇이 약점인가" 하나를 보여 준다. */
+
+.stats {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: calc(var(--safe-t) + var(--space-6)) var(--space-gutter) var(--space-5);
+}
+
+.stats__wait {
+  padding: var(--space-7) var(--space-gutter);
+  color: var(--muted);
+}
+
+.stats__head {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.022em;
+}
+
+.stats__title {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+.stats__empty {
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+/* 막대. 높이만으로 읽는다 — 눈금도 격자도 두지 않는다. */
+.chart {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: end;
+  gap: 4px;
+  height: 5rem;
+  margin-top: var(--space-3);
+}
+
+.chart__col {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.chart__bar {
+  width: 100%;
+  min-height: 3px;
+  border-radius: var(--radius-xs);
+  background: var(--fill-1);
+  transition: height var(--duration-normal) var(--ease-soft);
+}
+
+.chart__bar--on {
+  background: var(--accent);
+}
+
+.chart__axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+  color: var(--muted);
+  font-size: var(--text-2xs);
+}
+
+/* 막힌 문장. 횟수를 오른쪽에 붙여 한눈에 순서가 보이게 한다. */
+.weak {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.weak__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-left: var(--space-3);
+  border-left: 2px solid color-mix(in oklab, var(--danger) 40%, transparent);
+}
+
+.weak__ko {
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+}
+
+.weak__en {
+  margin-top: 2px;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+}
+
+.weak__count {
+  flex: 0 0 auto;
+  color: var(--danger);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}

@@ -109,6 +109,9 @@ test('채점한 것이 다시 열어도 남아 있다', async ({ page }) => {
   await page.getByRole('button', { name: '따라 말했다, 다음' }).click()
   await page.getByRole('button', { name: '말했다, 들어 보기' }).click()
   await page.getByRole('button', { name: /바로 나왔다/ }).click()
+  // 다음 카드가 뜬 것이 채점이 끝났다는 신호다. 이걸 안 기다리고 페이지를 갈아 버리면
+  // IndexedDB 쓰기가 끝나기 전에 문서가 없어져 어쩌다 한 번 기록이 비어 보인다.
+  await expect(page.locator('.stage__count')).toHaveText('2 / 8')
 
   await page.goto('/')
   await expect(page.locator('.facts__cell').first()).toContainText('1')

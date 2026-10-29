@@ -42,7 +42,7 @@ export function Today() {
   }
 
   return (
-    <main className="today">
+    <main className="today has-dock">
       <header className="today__head">
         <p className="today__mark">gosay</p>
         <h1 className="today__line">

@@ -44,6 +44,11 @@ export interface AppState {
 
   /** 오늘의 세션을 새로 짠다. 이미 끝나지 않은 세션이 있으면 그것을 그대로 이어 쓴다. */
   startSession: () => Session | null
+  /**
+   * 고른 문장만으로 세션을 짠다(묶음 연습). 복습일이 안 됐어도 넣는다 —
+   * 면접 직전에 '못 들었을 때' 만 돌리고 싶은 경우가 이 길이다. 열려 있던 세션은 닫는다.
+   */
+  startSessionOf: (sentenceIds: readonly string[]) => Session | null
   /** 한 박자 앞으로. **매번 저장한다** — 지하철에서 앱이 닫혀도 이 자리로 돌아온다. */
   nextBeat: () => void
   /** 지금 카드를 채점하고 다음 카드로. 복습 간격과 날짜 기록이 함께 갱신된다. */
@@ -237,6 +242,39 @@ export function createAppStore(db: GosayDB, now: () => number = Date.now, option
           tracks: settings.tracks,
         })
         commit({ puts: { sessions: [session] }, deletes: {} })
+        return session
+      },
+
+      startSessionOf: (sentenceIds) => {
+        const stamp = now()
+        const today = dayKeyOf(stamp)
+        const { entities, settings } = get()
+        const open = openSession(today)
+        const startedAt = new Date(stamp).toISOString()
+
+        // 복습일이 지난 것부터. 같은 묶음 안에서도 밀린 것을 먼저 본다.
+        const ordered = [...sentenceIds]
+          .filter((id) => entities.sentences[id] !== undefined)
+          .sort((a, b) => (entities.reviews[a]?.due ?? '').localeCompare(entities.reviews[b]?.due ?? ''))
+          .slice(0, settings.dailyCount)
+
+        const session: Session = {
+          id: `sess-${stamp}`,
+          date: today,
+          sentenceIds: ordered,
+          index: 0,
+          beat: 'listen',
+          grades: {},
+          startedAt,
+          finishedAt: ordered.length === 0 ? startedAt : null,
+        }
+
+        commit(
+          mergeChangeSets(
+            open ? { puts: { sessions: [{ ...open, finishedAt: startedAt }] }, deletes: {} } : { puts: {}, deletes: {} },
+            { puts: { sessions: [session] }, deletes: {} },
+          ),
+        )
         return session
       },
 

@@ -51,6 +51,10 @@ const SHOTS = [
     dark: true,
     seed: { due: 5, days: 4, midSession: true },
   },
+  { file: 'tracks-390', path: '#/tracks', width: 390, height: 844, dark: false, seed: { due: 5, days: 4 } },
+  { file: 'stats-390', path: '#/stats', width: 390, height: 844, dark: false, seed: { due: 5, days: 4 } },
+  { file: 'stats-390-dark', path: '#/stats', width: 390, height: 844, dark: true, seed: { due: 5, days: 4 } },
+  { file: 'settings-390', path: '#/settings', width: 390, height: 844, dark: false, seed: { due: 5, days: 4 } },
   {
     file: 'session-1440',
     path: '#/session',

@@ -1,8 +1,12 @@
 import { useEffect } from 'react'
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { useApp } from '../store/app'
 import { Today } from '../features/today/Today'
 import { SessionScreen } from '../features/session/SessionScreen'
+import { Tracks } from '../features/tracks/Tracks'
+import { Stats } from '../features/stats/Stats'
+import { SettingsScreen } from '../features/settings/SettingsScreen'
+import { Dock } from './Dock'
 import './app.css'
 
 export function App() {
@@ -18,6 +22,7 @@ function Shell() {
   const loadError = useApp((s) => s.loadError)
   const persistError = useApp((s) => s.persistError)
   const theme = useApp((s) => s.settings.theme)
+  const location = useLocation()
 
   useEffect(() => {
     void load()
@@ -55,8 +60,13 @@ function Shell() {
       <Routes>
         <Route path="/" element={<Today />} />
         <Route path="/session" element={<SessionScreen />} />
+        <Route path="/tracks" element={<Tracks />} />
+        <Route path="/stats" element={<Stats />} />
+        <Route path="/settings" element={<SettingsScreen />} />
         <Route path="*" element={<Today />} />
       </Routes>
+      {/* 세션 중에는 독을 숨긴다. 거기서 나가는 길은 '접기' 하나뿐이어야 집중이 깨지지 않는다. */}
+      {location.pathname === '/session' ? null : <Dock />}
     </>
   )
 }

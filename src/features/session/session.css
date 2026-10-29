@@ -135,21 +135,13 @@
   width: 100%;
 }
 
-.stage--done {
-  grid-template-rows: auto auto auto;
-  align-content: center;
-  text-align: center;
-}
-
 .stage--done .stage__beat {
   font-size: var(--text-lg);
   color: var(--ink);
 }
 
 .stage--done .btn--wide {
-  justify-self: center;
   flex: 0 0 auto;
-  min-width: 14rem;
 }
 
 /* 넓은 화면에서는 세로로 늘어나지 않게 가운데에 세워 둔다. */
@@ -162,4 +154,48 @@
   .stage__en {
     font-size: var(--text-hero);
   }
+}
+
+/* 세션 끝 요약. 막힌 문장을 다시 보여 주는 것이 이 화면의 이유다. */
+.stage--done {
+  grid-template-rows: auto 1fr auto auto;
+  align-content: start;
+  text-align: left;
+}
+
+.recap {
+  align-self: start;
+}
+
+.recap__title {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+.recap__list {
+  margin-top: var(--space-3);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.recap__row {
+  padding-left: var(--space-3);
+  border-left: 2px solid color-mix(in oklab, var(--danger) 40%, transparent);
+}
+
+.recap__ko {
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+}
+
+.recap__en {
+  margin-top: 2px;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+}
+
+.recap__next {
+  color: var(--muted);
+  font-size: var(--text-sm);
 }
