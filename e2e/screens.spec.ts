@@ -22,7 +22,7 @@ test('독으로 네 화면을 오간다', async ({ page }) => {
   await expect(page.getByRole('button', { name: /오늘 연습 시작/ })).toBeVisible()
 })
 
-test('묶음 하나만 골라 연습할 수 있다 — 면접 직전에 쓰는 길이다', async ({ page }) => {
+test('묶음 하나만 골라 연습할 수 있다 — 회의 직전에 쓰는 길이다', async ({ page }) => {
   await page.getByRole('link', { name: '묶음' }).click()
   await page.getByRole('button', { name: /못 들었을 때/ }).click()
 

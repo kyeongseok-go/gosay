@@ -33,7 +33,7 @@ const daySchema = z.object({ date: z.string().min(1), spoken: z.number(), stuck:
 
 const sentenceSchema = z.object({
   id: z.string().min(1),
-  track: z.enum(['interview', 'work', 'small']),
+  track: z.enum(['work', 'term', 'fix', 'small']),
   group: z.string(),
   ko: z.string(),
   en: z.string(),
@@ -49,7 +49,7 @@ const settingsSchema = z.object({
   speed: z.number().positive(),
   theme: z.enum(['auto', 'light', 'dark']),
   catchUpCap: z.number().int().positive(),
-  tracks: z.array(z.enum(['interview', 'work', 'small'])).min(1),
+  tracks: z.array(z.enum(['work', 'term', 'fix', 'small'])).min(1),
 })
 
 const backupSchema = z.object({

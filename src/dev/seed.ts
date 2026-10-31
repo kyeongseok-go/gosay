@@ -27,7 +27,7 @@ export async function seedDemo(options: SeedOptions = {}): Promise<void> {
 
   const today = dayKeyOf(Date.now())
   const ids = Object.values(store.entities.sentences)
-    .filter((row) => row.track === 'interview')
+    .filter((row) => row.track === 'work')
     .map((row) => row.id)
 
   const reviews: Review[] = []

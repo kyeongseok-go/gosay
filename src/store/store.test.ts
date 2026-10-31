@@ -9,7 +9,7 @@ import type { Sentence } from '../domain/types'
 function sentence(id: string, patch: Partial<Sentence> = {}): Sentence {
   return {
     id,
-    track: 'interview',
+    track: 'work',
     group: '경력 설명',
     ko: `한국어 ${id}`,
     en: `english ${id}`,
@@ -52,7 +52,7 @@ describe('load', () => {
     const stored = await db.settings.get('settings')
 
     expect(stored?.dailyCount).toBeGreaterThan(0)
-    expect(stored?.tracks).toEqual(['interview'])
+    expect(stored?.tracks).toEqual(['work', 'term', 'fix', 'small'])
   })
 
   test('두 번 불러도 한 번만 읽는다', async () => {

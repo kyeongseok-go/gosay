@@ -360,6 +360,186 @@
       "en": "If you have questions, just leave a comment on the pull request.",
       "note": "just = 부담 없이",
       "source": "실무 표현"
+    },
+    {
+      "id": "wk-run-1",
+      "track": "work",
+      "group": "회의 진행",
+      "ko": "오늘 정하고 나가야 하는 게 뭔지부터 맞추죠.",
+      "en": "Let's start by agreeing on what we need to decide today.",
+      "note": "회의를 여는 가장 쓸모 있는 한 문장. 안건이 흐려지는 걸 먼저 막는다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-run-2",
+      "track": "work",
+      "group": "회의 진행",
+      "ko": "제가 이해한 걸 한 번 정리해 볼게요. 틀리면 고쳐 주세요.",
+      "en": "Let me repeat back what I understood, and correct me if I'm wrong.",
+      "note": "repeat back = 들은 것을 되짚는다. 못 알아들었을 때 가장 안전한 길이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-run-3",
+      "track": "work",
+      "group": "회의 진행",
+      "ko": "그건 따로 다루죠. 지금 안건에서 벗어나는 것 같아요.",
+      "en": "Let's take that offline. I think we're drifting off the agenda.",
+      "note": "take it offline = 이 자리 밖에서 따로. 회의에서 아주 흔한 관용구다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-run-4",
+      "track": "work",
+      "group": "회의 진행",
+      "ko": "한 가지만 더 보태도 될까요?",
+      "en": "Can I add one thing to that?",
+      "note": "끼어들 때 쓰는 가장 짧은 말. 길게 양해를 구하지 않는다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-run-5",
+      "track": "work",
+      "group": "회의 진행",
+      "ko": "지금까지 정해진 걸 제가 정리해 볼게요.",
+      "en": "Let me summarize what we've decided so far.",
+      "note": "회의를 닫는 말. 이걸 하는 사람이 주도권을 갖는다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-run-6",
+      "track": "work",
+      "group": "회의 진행",
+      "ko": "그럼 이건 누가 가져가나요?",
+      "en": "So who's taking this one?",
+      "note": "take it = 맡는다. own it 도 같은 뜻으로 쓴다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-run-7",
+      "track": "work",
+      "group": "회의 진행",
+      "ko": "소리가 끊겼어요. 마지막 부분을 다시 말씀해 주시겠어요?",
+      "en": "You cut out for a second. Could you repeat the last part?",
+      "note": "cut out = 소리가 끊긴다. 화상 회의에서 매번 쓴다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-est-1",
+      "track": "work",
+      "group": "추정과 일정",
+      "ko": "지금은 확답을 못 드리겠어요. 하루만 보고 알려 드릴게요.",
+      "en": "I can't commit to that yet. Give me a day to look into it.",
+      "note": "commit to ~ = 약속한다. 모르는 걸 모른다고 말하는 가장 안전한 틀",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-est-2",
+      "track": "work",
+      "group": "추정과 일정",
+      "ko": "제 감으로는 이틀 정도인데, 정확하진 않아요.",
+      "en": "My rough guess is about two days, but don't hold me to that.",
+      "note": "don't hold me to that = 그걸로 묶지 마세요. 추정에 붙이는 안전장치",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-est-3",
+      "track": "work",
+      "group": "추정과 일정",
+      "ko": "둘 다 이번 주에는 안 돼요. 어느 쪽이 먼저인가요?",
+      "en": "We can't do both this week. Which one comes first?",
+      "note": "우선순위를 되묻는다. 거절 대신 선택을 넘기는 방식이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-est-4",
+      "track": "work",
+      "group": "추정과 일정",
+      "ko": "막힌 게 있어서 아직 못 끝냈습니다. 도움이 좀 필요해요.",
+      "en": "I'm blocked on something, so it isn't done yet. I could use some help.",
+      "note": "I'm blocked on ~ = ~에 막혔다. I could use help 는 부드러운 요청",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-est-5",
+      "track": "work",
+      "group": "추정과 일정",
+      "ko": "범위를 줄이면 이번 주에 됩니다. 어디를 뺄지 정해 주세요.",
+      "en": "If we cut the scope, it fits this week. Tell me what to drop.",
+      "note": "cut the scope = 범위를 줄인다. 일정을 지키는 유일한 정직한 길이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-est-6",
+      "track": "work",
+      "group": "추정과 일정",
+      "ko": "생각보다 오래 걸렸어요. 왜 그랬는지 짧게 말씀드릴게요.",
+      "en": "It took longer than I expected. Let me quickly explain why.",
+      "note": "늦은 것을 먼저 말하고 이유를 뒤에 붙인다. 순서가 중요하다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-dis-1",
+      "track": "work",
+      "group": "반대와 합의",
+      "ko": "그 방법도 되지만, 저는 다른 쪽이 낫다고 봐요.",
+      "en": "That would work, but I think the other option is better.",
+      "note": "먼저 인정하고 반대한다. That's wrong 으로 시작하지 않는다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-dis-2",
+      "track": "work",
+      "group": "반대와 합의",
+      "ko": "제가 걱정하는 건 하나예요. 나중에 되돌리기 어려워져요.",
+      "en": "I only have one concern: it gets hard to undo later.",
+      "note": "걱정을 한 가지로 좁힌다. 여러 개를 늘어놓으면 하나도 안 통한다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-dis-3",
+      "track": "work",
+      "group": "반대와 합의",
+      "ko": "설득되지는 않았지만 결정에 따르겠습니다.",
+      "en": "I'm not convinced, but I'll go along with the decision.",
+      "note": "disagree and commit 을 말로 푼 문장. 반대를 남기고도 일을 진행한다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-dis-4",
+      "track": "work",
+      "group": "반대와 합의",
+      "ko": "제가 놓친 게 있는지 궁금해요. 왜 그렇게 보시는지 설명해 주실 수 있나요?",
+      "en": "I might be missing something. Could you walk me through your reasoning?",
+      "note": "walk me through ~ = 차근차근 설명해 달라. 공격하지 않고 캐묻는 법",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-dis-5",
+      "track": "work",
+      "group": "반대와 합의",
+      "ko": "둘 중에 뭐가 더 중요한지 정하면 답이 나올 것 같아요.",
+      "en": "If we decide which of the two matters more, the answer follows.",
+      "note": "의견 싸움을 기준 싸움으로 바꾼다. 교착을 푸는 문장이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-dis-6",
+      "track": "work",
+      "group": "반대와 합의",
+      "ko": "제가 틀렸네요. 알려 주셔서 고맙습니다.",
+      "en": "You're right, I was wrong. Thanks for catching that.",
+      "note": "catch = 잡아내다. 짧게 인정하고 넘어가는 게 영어 회의의 기본이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "wk-dis-7",
+      "track": "work",
+      "group": "반대와 합의",
+      "ko": "지금 결정할 만큼 알지 못해요. 조금 더 알아보고 정하죠.",
+      "en": "We don't know enough to decide yet. Let's find out more first.",
+      "note": "결정을 미루는 정당한 방식. 미루는 이유를 함께 말한다",
+      "source": "실무 표현"
     }
   ]
 }

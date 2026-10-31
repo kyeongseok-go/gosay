@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import type { ReactNode } from 'react'
 import { db, useApp } from '../../store/app'
 import { clearProgress } from '../../db/persist'
-import { TRACKS, TRACK_LABELS } from '../../domain/types'
+import { TRACKS, TRACK_HINTS, TRACK_LABELS } from '../../domain/types'
 import type { ThemeChoice, Track } from '../../domain/types'
 import { backupFileName, buildBackup, parseBackup } from './backup'
 import './settings.css'
@@ -136,6 +136,7 @@ export function SettingsScreen() {
                 >
                   <span>{TRACK_LABELS[track]}</span>
                   <span className="set__track-count tnum">{count}장</span>
+                  <span className="set__track-hint">{TRACK_HINTS[track]}</span>
                 </button>
               </li>
             )

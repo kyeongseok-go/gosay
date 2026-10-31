@@ -4,10 +4,24 @@ import { corpus, missingAudio } from './corpus'
 const all = corpus()
 
 describe('코퍼스', () => {
-  test('면접 트랙이 3단계 목표 20장을 넘긴다', () => {
-    const interview = all.filter((s) => s.track === 'interview')
+  test('네 묶음이 모두 쓸 만한 장수를 넘긴다 — 하나만 두꺼우면 그 묶음에 몇 주가 묶인다', () => {
+    const counts = {
+      work: all.filter((s) => s.track === 'work').length,
+      term: all.filter((s) => s.track === 'term').length,
+      fix: all.filter((s) => s.track === 'fix').length,
+      small: all.filter((s) => s.track === 'small').length,
+    }
 
-    expect(interview.length).toBeGreaterThanOrEqual(20)
+    expect(counts.work).toBeGreaterThanOrEqual(50)
+    expect(counts.term).toBeGreaterThanOrEqual(40)
+    expect(counts.fix).toBeGreaterThanOrEqual(15)
+    expect(counts.small).toBeGreaterThanOrEqual(20)
+  })
+
+  test('기술 용어 묶음은 용어를 설명하는 쪽지를 늘 달고 있다 — 용어만 알고 문장을 못 만들면 못 쓴다', () => {
+    const bare = all.filter((s) => s.track === 'term' && s.note.trim().length === 0)
+
+    expect(bare).toEqual([])
   })
 
   test('모든 문장에 번들된 기준 음원이 붙어 있다', () => {

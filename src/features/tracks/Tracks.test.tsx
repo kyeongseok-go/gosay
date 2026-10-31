@@ -41,8 +41,8 @@ describe('Tracks', () => {
 
     show()
 
-    expect(screen.getByRole('heading', { name: /면접 영어/ })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /업무 기술 영어/ })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /회의와 코드 리뷰/ })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /기술 용어/ })).toBeInTheDocument()
     expect(screen.queryByRole('heading', { name: /짧은 것/ })).not.toBeInTheDocument()
   })
 
@@ -84,7 +84,7 @@ describe('Tracks', () => {
 
     await userEvent.click(screen.getByRole('button', { name: /못 들었을 때/ }))
     await waitFor(() => expect(navigate).toHaveBeenCalled())
-    await userEvent.click(screen.getByRole('button', { name: /자기소개/ }))
+    await userEvent.click(screen.getByRole('button', { name: /코드 리뷰/ }))
 
     await waitFor(() => {
       const open = Object.values(useApp.getState().entities.sessions).filter((row) => row.finishedAt === null)

@@ -6,7 +6,7 @@ const draft: Draft = {
   ko: '제가 맡은 부분만 말씀드려도 될까요?',
   en: 'Can I just talk about the part I owned?',
   note: 'owned = 맡았다',
-  track: 'interview',
+  track: 'work',
 }
 
 describe('draftToSentence', () => {
@@ -15,7 +15,7 @@ describe('draftToSentence', () => {
 
     expect(sentence).toMatchObject({
       id: 'own-1',
-      track: 'interview',
+      track: 'work',
       group: CUSTOM_GROUP,
       ko: draft.ko,
       en: draft.en,

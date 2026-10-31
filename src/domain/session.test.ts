@@ -11,7 +11,7 @@ import {
 import { startingReview } from './review'
 import type { Review, Sentence, Session, Track } from './types'
 
-function sentence(id: string, track: Track = 'interview'): Sentence {
+function sentence(id: string, track: Track = 'work'): Sentence {
   return {
     id,
     track,
@@ -40,7 +40,7 @@ function build(partial: Partial<Parameters<typeof buildSession>[0]> = {}): Sessi
     reviews: {},
     dailyCount: 10,
     catchUpCap: 20,
-    tracks: ['interview'],
+    tracks: ['work'],
     ...partial,
   })
 }
@@ -111,11 +111,33 @@ describe('buildSession', () => {
 
   test('고르지 않은 트랙은 넣지 않는다', () => {
     const session = build({
-      sentences: [sentence('a', 'interview'), sentence('w', 'work')],
-      tracks: ['interview'],
+      sentences: [sentence('a', 'work'), sentence('s', 'small')],
+      tracks: ['work'],
     })
 
     expect(session.sentenceIds).toEqual(['a'])
+  })
+
+  test('신규는 트랙을 돌아가며 뽑는다 — 두꺼운 묶음 하나에 한 주가 묶이지 않게', () => {
+    const many = [
+      ...Array.from({ length: 10 }, (_, i) => sentence(`w${i}`, 'work')),
+      ...Array.from({ length: 10 }, (_, i) => sentence(`t${i}`, 'term')),
+      ...Array.from({ length: 10 }, (_, i) => sentence(`f${i}`, 'fix')),
+    ]
+
+    const session = build({ sentences: many, tracks: ['work', 'term', 'fix'], dailyCount: 6 })
+
+    expect(session.sentenceIds).toEqual(['w0', 't0', 'f0', 'w1', 't1', 'f1'])
+  })
+
+  test('한 트랙이 먼저 비어도 남은 트랙으로 채운다', () => {
+    const session = build({
+      sentences: [sentence('w0', 'work'), sentence('t0', 'term'), sentence('t1', 'term')],
+      tracks: ['work', 'term'],
+      dailyCount: 5,
+    })
+
+    expect(session.sentenceIds).toEqual(['w0', 't0', 't1'])
   })
 
   test('문장이 하나도 없으면 빈 세션이 나온다', () => {

@@ -6,7 +6,7 @@ import type { Review, Sentence } from '../../domain/types'
 function sentence(id: string, group: string): Sentence {
   return {
     id,
-    track: 'interview',
+    track: 'work',
     group,
     ko: '한국어',
     en: 'english',

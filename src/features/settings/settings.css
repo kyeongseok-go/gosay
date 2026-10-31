@@ -83,13 +83,14 @@
 }
 
 .set__track {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
+  gap: 2px var(--space-3);
   width: 100%;
   min-height: var(--control-h);
-  padding: 0 var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  text-align: left;
   border-radius: var(--radius-md);
   background: var(--fill-3);
   color: var(--ink-soft);
@@ -112,6 +113,18 @@
 
 .set__track-count {
   font-size: var(--text-sm);
+}
+
+/* 묶음을 왜 켜는지. 라벨만 보고는 '기술 용어' 가 단어장인지 문장인지 알 수 없다. */
+.set__track-hint {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+}
+
+.set__track--on .set__track-hint {
+  color: var(--ink-soft);
 }
 
 .set__buttons {

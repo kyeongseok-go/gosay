@@ -1,0 +1,410 @@
+{
+  "note": "기술 용어. 단어장이 아니다 — 용어가 실제로 쓰이는 문장째로 익힌다. 용어만 알고 문장을 못 만들면 회의에서 못 쓴다. note 에 그 용어의 뜻과 한국 개발자가 틀리기 쉬운 지점을 적었다.",
+  "sentences": [
+    {
+      "id": "tm-conc-1",
+      "track": "term",
+      "group": "동시성과 성능",
+      "ko": "이건 경합 조건 같아요. 두 요청이 같은 행을 동시에 건드리고 있어요.",
+      "en": "This looks like a race condition. Two requests are touching the same row at the same time.",
+      "note": "race condition = 순서에 따라 결과가 달라지는 버그. 'race' 는 세지 않는다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-conc-2",
+      "track": "term",
+      "group": "동시성과 성능",
+      "ko": "같은 요청이 두 번 와도 결과가 같아야 해요. 멱등하게 만들죠.",
+      "en": "The same request should give the same result twice. Let's make it idempotent.",
+      "note": "idempotent = 멱등. '아이뎀포턴트' 가 아니라 '아이덤퍼턴트' 에 가깝다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-conc-3",
+      "track": "term",
+      "group": "동시성과 성능",
+      "ko": "소비하는 쪽이 못 따라가요. 역압 처리를 넣어야 해요.",
+      "en": "The consumer can't keep up. We need to handle backpressure.",
+      "note": "backpressure = 뒤에서 밀려 생기는 압력. 큐·스트림 이야기에서 꼭 나온다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-conc-4",
+      "track": "term",
+      "group": "동시성과 성능",
+      "ko": "병목이 어디인지 먼저 재 보죠. 지금은 추측이에요.",
+      "en": "Let's measure where the bottleneck is first. Right now we're guessing.",
+      "note": "bottleneck = 병목. 'where the bottleneck is' 어순을 그대로 외운다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-conc-5",
+      "track": "term",
+      "group": "동시성과 성능",
+      "ko": "처리량은 늘었는데 꼬리 지연이 더 나빠졌어요.",
+      "en": "Throughput went up, but tail latency got worse.",
+      "note": "throughput 양, latency 시간. tail latency = p99 같은 느린 쪽 끝",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-conc-6",
+      "track": "term",
+      "group": "동시성과 성능",
+      "ko": "메모리가 계속 올라가요. 어딘가 누수가 있는 것 같아요.",
+      "en": "Memory keeps climbing. I think we have a leak somewhere.",
+      "note": "a memory leak. 'leak' 에 관사를 붙인다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-conc-7",
+      "track": "term",
+      "group": "동시성과 성능",
+      "ko": "이 호출은 막지 않아요. 비동기로 돌아갑니다.",
+      "en": "This call doesn't block. It runs asynchronously.",
+      "note": "blocking / non-blocking 은 동사로 쓴다 — 'it blocks'",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-conc-8",
+      "track": "term",
+      "group": "동시성과 성능",
+      "ko": "먼저 캐시를 올리기보다, 질의 자체를 고치는 게 맞다고 봐요.",
+      "en": "Rather than putting a cache in front, I think we should fix the query itself.",
+      "note": "put a cache in front of ~ = 앞에 캐시를 둔다. 'in front' 를 빼면 뜻이 흐려진다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-conc-9",
+      "track": "term",
+      "group": "동시성과 성능",
+      "ko": "루프 안에서 질의를 날리고 있어요. N+1 문제예요.",
+      "en": "We're running a query inside the loop. That's an N+1 problem.",
+      "note": "N+1 은 'N plus one' 으로 읽는다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-conc-10",
+      "track": "term",
+      "group": "동시성과 성능",
+      "ko": "캐시를 언제 비울지가 어려운 부분이에요.",
+      "en": "The hard part is knowing when to invalidate the cache.",
+      "note": "invalidate the cache = 캐시를 무효화한다. delete 보다 이 동사를 쓴다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-data-1",
+      "track": "term",
+      "group": "데이터와 저장",
+      "ko": "이 이전은 되돌릴 수 있나요?",
+      "en": "Is this migration reversible?",
+      "note": "migration = 스키마 이전. reversible 은 '되돌릴 수 있는'",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-data-2",
+      "track": "term",
+      "group": "데이터와 저장",
+      "ko": "이건 깨뜨리는 변경이에요. 쓰는 쪽을 먼저 옮겨야 해요.",
+      "en": "This is a breaking change. We need to migrate the callers first.",
+      "note": "breaking change = 호환을 깨는 변경. caller = 호출하는 쪽",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-data-3",
+      "track": "term",
+      "group": "데이터와 저장",
+      "ko": "스키마를 먼저 바꾸고 코드를 나중에 내보내죠. 두 단계로요.",
+      "en": "Let's ship the schema change first and the code second, in two steps.",
+      "note": "ship = 내보낸다. release 보다 구어에서 훨씬 자주 쓴다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-data-4",
+      "track": "term",
+      "group": "데이터와 저장",
+      "ko": "트랜잭션 안에서 외부 호출을 하면 안 돼요.",
+      "en": "We shouldn't make external calls inside a transaction.",
+      "note": "make a call = 호출한다. do a call 이라고 하지 않는다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-data-5",
+      "track": "term",
+      "group": "데이터와 저장",
+      "ko": "이 필드에 색인이 없어요. 전체를 훑고 있어요.",
+      "en": "There's no index on this field, so it's doing a full scan.",
+      "note": "index on ~ 전치사는 on. full scan = 전수 탐색",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-data-6",
+      "track": "term",
+      "group": "데이터와 저장",
+      "ko": "결국엔 일관되게 맞아요. 바로는 아니고요.",
+      "en": "It's eventually consistent, just not immediately.",
+      "note": "eventually consistent = 최종적 일관성. 분산 시스템 회의의 기본 단어",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-data-7",
+      "track": "term",
+      "group": "데이터와 저장",
+      "ko": "원천이 어디인지 하나로 정해야 해요.",
+      "en": "We need to agree on a single source of truth.",
+      "note": "single source of truth = 진실의 단일 원천. 통째로 외우는 말이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-data-8",
+      "track": "term",
+      "group": "데이터와 저장",
+      "ko": "이 데이터는 저장하지 않고 그때그때 계산해요.",
+      "en": "We don't store this. We compute it on the fly.",
+      "note": "on the fly = 그때그때. 회의에서 아주 흔하다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-ops-1",
+      "track": "term",
+      "group": "배포와 운영",
+      "ko": "기능 깃발 뒤에 두고 내보내죠. 켜는 건 나중에요.",
+      "en": "Let's ship it behind a feature flag and turn it on later.",
+      "note": "behind a feature flag = 깃발 뒤에. 전치사 behind 가 관용이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-ops-2",
+      "track": "term",
+      "group": "배포와 운영",
+      "ko": "먼저 5%에만 내보내고 지켜보죠.",
+      "en": "Let's roll it out to five percent first and watch it.",
+      "note": "roll out = 점진 배포. roll back 은 되돌리기",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-ops-3",
+      "track": "term",
+      "group": "배포와 운영",
+      "ko": "되돌릴 방법이 있나요? 없으면 저는 반대예요.",
+      "en": "Do we have a way to roll this back? If not, I'd rather not.",
+      "note": "I'd rather not = 완곡한 반대. I disagree 보다 회의에서 부드럽다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-ops-4",
+      "track": "term",
+      "group": "배포와 운영",
+      "ko": "지금 장애 영향 범위가 어디까지인지 아는 사람 있나요?",
+      "en": "Does anyone know the blast radius on this?",
+      "note": "blast radius = 터졌을 때 번지는 범위. 장애 대응에서 그대로 쓴다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-ops-5",
+      "track": "term",
+      "group": "배포와 운영",
+      "ko": "원인은 나중에 보죠. 지금은 멈추는 게 먼저예요.",
+      "en": "Let's find the root cause later. Right now we need to stop the bleeding.",
+      "note": "stop the bleeding = 피를 멎게 한다, 즉 급한 불부터. 장애 대응 관용구",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-ops-6",
+      "track": "term",
+      "group": "배포와 운영",
+      "ko": "이건 임시 조치예요. 제대로 고치는 건 따로 티켓을 내죠.",
+      "en": "This is a workaround. Let's open a separate ticket for the real fix.",
+      "note": "workaround = 돌아가는 임시 방편. temporary fix 보다 자연스럽다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-ops-7",
+      "track": "term",
+      "group": "배포와 운영",
+      "ko": "지금 무슨 일이 벌어지는지 볼 수가 없어요. 로그가 부족해요.",
+      "en": "We can't see what's going on. We don't have enough observability.",
+      "note": "observability = 들여다볼 수 있는 정도. monitoring 보다 넓은 말",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-ops-8",
+      "track": "term",
+      "group": "배포와 운영",
+      "ko": "이 경보는 너무 자주 울려서 이제 아무도 안 봐요.",
+      "en": "This alert fires so often that nobody looks at it anymore.",
+      "note": "an alert fires = 경보가 울린다. 동사는 fire 다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-ops-9",
+      "track": "term",
+      "group": "배포와 운영",
+      "ko": "장애 복기를 하죠. 사람을 탓하지 않는 자리로요.",
+      "en": "Let's do a postmortem, and let's keep it blameless.",
+      "note": "postmortem = 장애 복기. blameless 가 따라붙는 게 보통이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-test-1",
+      "track": "term",
+      "group": "테스트와 품질",
+      "ko": "이 테스트는 들쭉날쭉해요. 돌릴 때마다 결과가 달라요.",
+      "en": "This test is flaky. It fails on and off.",
+      "note": "flaky test = 불안정한 테스트. 'on and off' = 들쭉날쭉",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-test-2",
+      "track": "term",
+      "group": "테스트와 품질",
+      "ko": "이거 전에 고쳤던 건데 되돌아왔어요.",
+      "en": "We fixed this before. It's a regression.",
+      "note": "regression = 되돌아온 버그. 'regression test' 는 그걸 막는 테스트",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-test-3",
+      "track": "term",
+      "group": "테스트와 품질",
+      "ko": "이 경우를 덮는 테스트를 먼저 쓰고 고치죠.",
+      "en": "Let's write a failing test for this case first, then fix it.",
+      "note": "a failing test first = 먼저 떨어지는 테스트. TDD 를 말할 때 이 표현을 쓴다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-test-4",
+      "track": "term",
+      "group": "테스트와 품질",
+      "ko": "수치는 올라갔는데 의미 있는 걸 덮고 있진 않아요.",
+      "en": "Coverage went up, but it isn't covering anything meaningful.",
+      "note": "cover = 덮는다. coverage 는 셀 수 없는 명사다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-test-5",
+      "track": "term",
+      "group": "테스트와 품질",
+      "ko": "이건 기술 부채로 남겨 두고, 다음 분기에 갚죠.",
+      "en": "Let's log this as tech debt and pay it down next quarter.",
+      "note": "pay down debt = 부채를 갚는다. 비유를 끝까지 유지하는 게 관용이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-test-6",
+      "track": "term",
+      "group": "테스트와 품질",
+      "ko": "재현이 안 돼요. 어떤 순서로 하셨는지 알려 주실 수 있나요?",
+      "en": "I can't reproduce it. Could you tell me the exact steps you took?",
+      "note": "reproduce = 재현한다. 'repro' 로 줄여 쓰기도 한다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-test-7",
+      "track": "term",
+      "group": "테스트와 품질",
+      "ko": "제 기계에서는 되는데요. 환경 차이일 것 같아요.",
+      "en": "It works on my machine, so it's probably an environment difference.",
+      "note": "works on my machine 은 농담처럼 쓰이는 말이다. 뒤를 꼭 붙인다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-test-8",
+      "track": "term",
+      "group": "테스트와 품질",
+      "ko": "이 조건은 조용히 넘어가요. 오류를 삼키고 있어요.",
+      "en": "This branch fails silently. It's swallowing the error.",
+      "note": "swallow an error = 오류를 삼킨다. 리뷰에서 자주 쓰는 지적이다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-arch-1",
+      "track": "term",
+      "group": "설계와 구조",
+      "ko": "이 두 모듈이 너무 붙어 있어요. 떼어 놓는 게 좋겠어요.",
+      "en": "These two modules are too tightly coupled. I'd like to pull them apart.",
+      "note": "tightly coupled / loosely coupled. 'pull apart' = 떼어 놓는다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-arch-2",
+      "track": "term",
+      "group": "설계와 구조",
+      "ko": "지금 필요한 게 아니면 넣지 말죠.",
+      "en": "If we don't need it now, let's not build it yet.",
+      "note": "YAGNI 를 말로 풀면 이 문장이다. 약자보다 문장으로 말하는 게 낫다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-arch-3",
+      "track": "term",
+      "group": "설계와 구조",
+      "ko": "경계를 어디에 그을지가 진짜 결정이에요.",
+      "en": "The real decision is where we draw the boundary.",
+      "note": "draw a boundary = 경계를 긋는다. 설계 논의의 핵심 표현",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-arch-4",
+      "track": "term",
+      "group": "설계와 구조",
+      "ko": "이건 되돌리기 어려운 결정이에요. 한 번 더 생각하죠.",
+      "en": "This is a one-way door. Let's think about it once more.",
+      "note": "one-way door = 되돌릴 수 없는 결정. two-way door 는 그 반대",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-arch-5",
+      "track": "term",
+      "group": "설계와 구조",
+      "ko": "추상을 하나 더 얹기보다 중복을 남기는 게 나을 수도 있어요.",
+      "en": "Leaving some duplication might be better than adding another layer of abstraction.",
+      "note": "a layer of abstraction = 추상의 겹. 'abstraction' 은 셀 수 있게도 쓴다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-arch-6",
+      "track": "term",
+      "group": "설계와 구조",
+      "ko": "기본값을 뭐로 할지 정하죠. 가장 오래 남는 결정이에요.",
+      "en": "Let's decide the default. That's the decision that sticks around longest.",
+      "note": "stick around = 오래 남는다. remain 보다 구어답다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-arch-7",
+      "track": "term",
+      "group": "설계와 구조",
+      "ko": "이 인터페이스는 쓰는 쪽에 너무 많은 걸 알려 줘요.",
+      "en": "This interface leaks too much detail to the caller.",
+      "note": "leak detail = 내부를 흘린다. 캡슐화 이야기에서 쓰는 동사다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-arch-8",
+      "track": "term",
+      "group": "설계와 구조",
+      "ko": "이름을 먼저 정하죠. 이름이 안 나오면 아직 설계가 안 된 거예요.",
+      "en": "Let's name it first. If we can't name it, we haven't designed it yet.",
+      "note": "name it = 이름을 붙인다. 'naming' 은 설계 논의의 단골 주제다",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-arch-9",
+      "track": "term",
+      "group": "설계와 구조",
+      "ko": "지금 구조로도 돌아가요. 다만 늘리기가 어려워요.",
+      "en": "The current design works. It just doesn't scale well.",
+      "note": "scale 은 자동사로 쓴다 — 'it scales', 'it doesn't scale'",
+      "source": "실무 표현"
+    },
+    {
+      "id": "tm-arch-10",
+      "track": "term",
+      "group": "설계와 구조",
+      "ko": "맞교환이 뭔지만 분명히 하고 넘어가죠.",
+      "en": "Let's just be clear about the trade-off and move on.",
+      "note": "trade-off = 맞교환. 회의를 닫을 때 쓰기 좋은 문장이다",
+      "source": "실무 표현"
+    }
+  ]
+}

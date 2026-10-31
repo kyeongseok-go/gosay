@@ -3,8 +3,12 @@
 // 설계의 중심: 이 앱은 "아는지" 묻지 않고 "입에서 나오는지"만 본다.
 // 그래서 정답 판정이 없고, 사람이 매긴 Grade 가 모든 복습 일정을 움직인다.
 
-/** 문장 묶음. 면접이 1순위다. */
-export type Track = 'interview' | 'work' | 'small'
+/**
+ * 문장 묶음. **회의가 1순위다.**
+ * 목표는 특정 자리를 통과하는 것이 아니라 소프트웨어 개발자로서 영어로 일하는 것이다.
+ * 그래서 묶음은 '어떤 자리'가 아니라 '어떤 상황'으로 나눈다.
+ */
+export type Track = 'work' | 'term' | 'fix' | 'small'
 
 /**
  * 자기 채점 3단계. 이 값이 복습 간격을 정한다.
@@ -17,7 +21,7 @@ export type Beat = 'listen' | 'shadow' | 'produce' | 'compare'
 
 export const BEATS: readonly Beat[] = ['listen', 'shadow', 'produce', 'compare']
 
-export const TRACKS: readonly Track[] = ['interview', 'work', 'small']
+export const TRACKS: readonly Track[] = ['work', 'term', 'fix', 'small']
 
 export interface Sentence {
   id: string
@@ -119,7 +123,16 @@ export const BEAT_LABELS: Readonly<Record<Beat, string>> = {
 }
 
 export const TRACK_LABELS: Readonly<Record<Track, string>> = {
-  interview: '면접 영어',
-  work: '업무 기술 영어',
+  work: '회의와 코드 리뷰',
+  term: '기술 용어',
+  fix: '못 들었을 때',
   small: '짧은 것',
+}
+
+/** 묶음을 왜 하는지 한 줄. 설정·묶음 화면에서 고를 때 읽는다. */
+export const TRACK_HINTS: Readonly<Record<Track, string>> = {
+  work: '리뷰·스탠드업·설계 논의·장애 대응에서 입으로 내는 말',
+  term: '용어를 단어로 외우지 않고 쓰이는 문장째로 익힌다',
+  fix: '못 알아들었을 때 대화를 끊지 않고 되묻는 법',
+  small: '회의 전후·전화·잡담. 짧아서 먼저 입에 붙는다',
 }

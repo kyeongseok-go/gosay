@@ -20,8 +20,31 @@ export interface BuildSessionInput {
   tracks: readonly Track[]
 }
 
-/** 트랙 우선순위. 면접이 1순위다 — 이 앱을 만든 이유다. */
-const TRACK_ORDER: Readonly<Record<Track, number>> = { interview: 0, work: 1, small: 2 }
+/** 트랙 우선순위. 회의가 1순위다 — 영어로 일하는 자리에서 가장 먼저 필요하다. */
+const TRACK_ORDER: Readonly<Record<Track, number>> = { work: 0, term: 1, fix: 2, small: 3 }
+
+/**
+ * 신규 문장을 트랙을 돌아가며 뽑는다.
+ * 한 트랙을 다 비운 뒤 다음으로 넘어가면 60장짜리 회의 묶음에 한 주가 묶여,
+ * 용어도 못 들었을 때 표현도 몇 주 뒤에야 처음 나온다. 매일 섞여 나와야 한다.
+ */
+function interleaveByTrack(sentences: readonly Sentence[], limit: number): string[] {
+  const queues = [...new Set(sentences.map((s) => s.track))]
+    .sort((a, b) => TRACK_ORDER[a] - TRACK_ORDER[b])
+    .map((track) => sentences.filter((s) => s.track === track))
+
+  const picked: string[] = []
+  for (let round = 0; picked.length < limit; round += 1) {
+    const before = picked.length
+    for (const queue of queues) {
+      const next = queue[round]
+      if (next && picked.length < limit) picked.push(next.id)
+    }
+    // 어느 트랙에도 더 뽑을 게 없으면 멈춘다. 없으면 무한히 돈다.
+    if (picked.length === before) break
+  }
+  return picked
+}
 
 /**
  * 오늘의 세션을 짠다. 복습 예정을 먼저 담고 남는 자리에 신규를 채운다.
@@ -45,11 +68,10 @@ export function buildSession(input: BuildSessionInput): Session {
     .slice(0, Math.min(catchUpCap, dailyCount))
     .map(({ sentence }) => sentence.id)
 
-  const fresh = inTracks
-    .filter((s) => reviews[s.id] === undefined)
-    .sort((a, b) => TRACK_ORDER[a.track] - TRACK_ORDER[b.track])
-    .slice(0, Math.max(0, dailyCount - due.length))
-    .map((s) => s.id)
+  const fresh = interleaveByTrack(
+    inTracks.filter((s) => reviews[s.id] === undefined),
+    Math.max(0, dailyCount - due.length),
+  )
 
   const sentenceIds = [...due, ...fresh]
   return {

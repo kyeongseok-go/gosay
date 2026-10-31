@@ -47,7 +47,7 @@ describe('Today', () => {
     show()
     await screen.findByRole('button', { name: /오늘 연습 시작/ })
 
-    expect(screen.getByText(/면접 영어/)).toHaveTextContent(/문장 \d+장/)
+    expect(screen.getByText(/회의와 코드 리뷰/)).toHaveTextContent(/문장 \d+장/)
   })
 
   test('시작을 누르면 세션이 만들어진다', async () => {

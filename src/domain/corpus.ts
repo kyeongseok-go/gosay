@@ -3,9 +3,9 @@
 // 콘텐츠가 이 앱의 제품이다. 그래서 형식을 런타임에 검사한다 — 손으로 고치다 필드를 빠뜨리면
 // 화면에서 조용히 빈칸이 되는 대신 여기서 바로 터지게 한다.
 import { z } from 'zod'
-import interview from '../content/interview.json'
-import recovery from '../content/recovery.json'
 import work from '../content/work.json'
+import term from '../content/term.json'
+import recovery from '../content/recovery.json'
 import small from '../content/small.json'
 import audioIndex from '../content/audio-index.json'
 import { TRACKS } from './types'
@@ -40,12 +40,12 @@ function load(raw: unknown, file: string): Sentence[] {
   }))
 }
 
-/** 번들된 전 문장. 면접 트랙이 먼저 온다 — 이 앱을 만든 이유다. */
+/** 번들된 전 문장. 회의 트랙이 먼저 온다 — 영어로 일할 때 가장 먼저 필요하다. */
 export function corpus(): Sentence[] {
   return [
-    ...load(interview, 'interview.json'),
-    ...load(recovery, 'recovery.json'),
     ...load(work, 'work.json'),
+    ...load(term, 'term.json'),
+    ...load(recovery, 'recovery.json'),
     ...load(small, 'small.json'),
   ]
 }

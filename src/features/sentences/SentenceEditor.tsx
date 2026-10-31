@@ -9,7 +9,7 @@ import { useApp } from '../../store/app'
 import { usePlayer } from '../../hooks/usePlayer'
 import { TRACKS, TRACK_LABELS } from '../../domain/types'
 
-const EMPTY: Draft = { ko: '', en: '', note: '', track: 'interview' }
+const EMPTY: Draft = { ko: '', en: '', note: '', track: 'work' }
 
 import { draftToSentence } from './draft'
 import type { Draft } from './draft'

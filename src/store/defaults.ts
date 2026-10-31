@@ -1,4 +1,5 @@
-import type { Settings } from '../domain/types'
+import { TRACKS } from '../domain/types'
+import type { Settings, Track } from '../domain/types'
 
 /**
  * 하루 분량. 10분 세션에 카드 8장이 들어간다 — 한 장이 4박자라 실제로 32번 누른다.
@@ -15,7 +16,7 @@ export function defaultSettings(): Settings {
     speed: 1,
     theme: 'auto',
     catchUpCap: DEFAULT_CATCH_UP_CAP,
-    tracks: ['interview'],
+    tracks: ['work', 'term', 'fix', 'small'],
   }
 }
 
@@ -23,11 +24,13 @@ export function defaultSettings(): Settings {
 export function mergeSettings(stored: Partial<Settings> | null | undefined): Settings {
   const base = defaultSettings()
   if (!stored) return base
+  // 없어진 트랙 이름이 저장돼 있을 수 있다(면접 트랙을 걷어냈다). 모르는 이름은 버린다.
+  const known = (stored.tracks ?? []).filter((track): track is Track => TRACKS.includes(track))
   return {
     ...base,
     ...stored,
     id: 'settings',
     // 트랙이 비면 세션이 늘 0장이 된다. 빈 배열로 저장된 설정을 그대로 믿지 않는다.
-    tracks: stored.tracks?.length ? stored.tracks : base.tracks,
+    tracks: known.length ? known : base.tracks,
   }
 }

@@ -55,30 +55,31 @@ describe('SettingsScreen', () => {
 
   test('문장이 없는 트랙은 고를 수 없다 — 고르면 세션이 0장이 된다', () => {
     const empty = Object.values(useApp.getState().entities.sentences)
-      .filter((row) => row.track === 'work')
+      .filter((row) => row.track === 'small')
       .map((row) => row.id)
     useApp.getState().commit({ puts: {}, deletes: { sentences: empty } })
 
     show()
 
-    expect(screen.getByRole('button', { name: /업무 기술 영어/ })).toBeDisabled()
+    expect(screen.getByRole('button', { name: /짧은 것/ })).toBeDisabled()
   })
 
   test('문장이 있는 트랙은 켜고 끌 수 있다', async () => {
     show()
 
-    await userEvent.click(screen.getByRole('button', { name: /업무 기술 영어/ }))
+    await userEvent.click(screen.getByRole('button', { name: /짧은 것/ }))
 
-    expect(useApp.getState().settings.tracks).toEqual(['interview', 'work'])
+    expect(useApp.getState().settings.tracks).toEqual(['work', 'term', 'fix'])
   })
 
   test('마지막 남은 트랙은 끄지 못한다 — 끄면 세션이 늘 0장이 된다', async () => {
+    useApp.getState().updateSettings({ tracks: ['term'] })
     show()
 
-    await userEvent.click(screen.getByRole('button', { name: /면접 영어/ }))
+    await userEvent.click(screen.getByRole('button', { name: /기술 용어/ }))
 
     expect(screen.getByRole('status')).toHaveTextContent('트랙은 하나 이상')
-    expect(useApp.getState().settings.tracks).toEqual(['interview'])
+    expect(useApp.getState().settings.tracks).toEqual(['term'])
   })
 
   test('백업을 가져오면 복습 기록이 들어온다', async () => {

@@ -13,7 +13,7 @@ import type { DayLog, Sentence } from '../domain/types'
 function sentence(id: string, ko = '한국어'): Sentence {
   return {
     id,
-    track: 'interview',
+    track: 'work',
     group: '경력 설명',
     ko,
     en: 'english',

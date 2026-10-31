@@ -7,7 +7,7 @@ import type { Sentence } from '../../domain/types'
 function sentence(id: string, custom: boolean): Sentence {
   return {
     id,
-    track: 'interview',
+    track: 'work',
     group: '경력 설명',
     ko: '한국어',
     en: 'english',
